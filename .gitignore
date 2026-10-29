@@ -1,0 +1,14 @@
+.DS_Store
+/vendor/
+/node_modules/
+/build/
+.phpunit.cache/
+.env
+/workbench/demo/
+
+# Beads / Dolt files (added by bd init)
+.dolt/
+*.db
+.beads-credential-key
+.beads/proxieddb/
+*.gate.lock*
