@@ -1,0 +1,203 @@
+{
+  "data": [
+    {
+      "id": "demo-rif",
+      "title": "Upgrade the payment SDK to v5",
+      "description": "v4 is end-of-life at the end of the month.",
+      "status": "open",
+      "priority": 0,
+      "issue_type": "chore",
+      "owner": "jurrid@codeberry.nl",
+      "created_at": "2026-11-05T12:48:46Z",
+      "created_by": "Jurrid",
+      "updated_at": "2026-11-05T12:48:46Z",
+      "labels": [
+        "backend",
+        "payments"
+      ],
+      "dependency_count": 0,
+      "dependent_count": 2,
+      "comment_count": 0
+    },
+    {
+      "id": "demo-ycn",
+      "title": "Checkout redesign",
+      "description": "Make checkout faster and clearer.\n\n## Goals\n\n- Fewer steps\n- Address autocomplete\n- Local payment methods",
+      "status": "open",
+      "priority": 1,
+      "issue_type": "epic",
+      "owner": "jurrid@codeberry.nl",
+      "created_at": "2026-11-05T12:48:39Z",
+      "created_by": "Jurrid",
+      "updated_at": "2026-11-05T12:48:39Z",
+      "labels": [
+        "checkout"
+      ],
+      "dependency_count": 0,
+      "dependent_count": 0,
+      "comment_count": 0
+    },
+    {
+      "id": "demo-0ms.3",
+      "title": "Search results flicker on slow connections",
+      "status": "open",
+      "priority": 1,
+      "issue_type": "bug",
+      "assignee": "claude-agent",
+      "owner": "jurrid@codeberry.nl",
+      "created_at": "2026-11-05T12:48:45Z",
+      "created_by": "Jurrid",
+      "updated_at": "2026-11-05T12:48:45Z",
+      "labels": [
+        "frontend",
+        "search"
+      ],
+      "dependencies": [
+        {
+          "issue_id": "demo-0ms.3",
+          "depends_on_id": "demo-0ms",
+          "type": "parent-child",
+          "created_at": "2026-11-05T12:48:45Z",
+          "created_by": "Jurrid",
+          "metadata": "{}"
+        },
+        {
+          "issue_id": "demo-0ms.3",
+          "depends_on_id": "demo-ycn.4",
+          "type": "relates-to",
+          "created_at": "2026-11-05T12:48:58Z",
+          "created_by": "Jurrid",
+          "metadata": "{}"
+        }
+      ],
+      "dependency_count": 0,
+      "dependent_count": 0,
+      "comment_count": 1,
+      "parent": "demo-0ms"
+    },
+    {
+      "id": "demo-0ms",
+      "title": "Search improvements",
+      "description": "Better relevance and speed for product search.",
+      "status": "open",
+      "priority": 2,
+      "issue_type": "epic",
+      "owner": "jurrid@codeberry.nl",
+      "created_at": "2026-11-05T12:48:40Z",
+      "created_by": "Jurrid",
+      "updated_at": "2026-11-05T12:48:40Z",
+      "labels": [
+        "search"
+      ],
+      "dependency_count": 0,
+      "dependent_count": 0,
+      "comment_count": 0
+    },
+    {
+      "id": "demo-ycn.4",
+      "title": "Checkout button misaligned on Safari",
+      "description": "Steps to reproduce:\n\n1. Open checkout in Safari 18\n2. Resize to 375px\n\nThe button overflows its container.",
+      "status": "open",
+      "priority": 2,
+      "issue_type": "bug",
+      "owner": "jurrid@codeberry.nl",
+      "created_at": "2026-11-05T12:48:43Z",
+      "created_by": "claude-agent",
+      "updated_at": "2026-11-05T12:48:43Z",
+      "labels": [
+        "checkout",
+        "frontend"
+      ],
+      "dependencies": [
+        {
+          "issue_id": "demo-ycn.4",
+          "depends_on_id": "demo-ycn",
+          "type": "parent-child",
+          "created_at": "2026-11-05T12:48:43Z",
+          "created_by": "claude-agent",
+          "metadata": "{}"
+        },
+        {
+          "issue_id": "demo-ycn.4",
+          "depends_on_id": "demo-0ms.3",
+          "type": "relates-to",
+          "created_at": "2026-11-05T12:48:58Z",
+          "created_by": "Jurrid",
+          "metadata": "{}"
+        }
+      ],
+      "dependency_count": 0,
+      "dependent_count": 0,
+      "comment_count": 1,
+      "parent": "demo-ycn"
+    },
+    {
+      "id": "demo-0ms.2",
+      "title": "Typo tolerance for search queries",
+      "status": "open",
+      "priority": 3,
+      "issue_type": "feature",
+      "owner": "jurrid@codeberry.nl",
+      "created_at": "2026-11-05T12:48:44Z",
+      "created_by": "Jurrid",
+      "updated_at": "2026-11-05T12:48:44Z",
+      "labels": [
+        "backend",
+        "search"
+      ],
+      "dependencies": [
+        {
+          "issue_id": "demo-0ms.2",
+          "depends_on_id": "demo-0ms.1",
+          "type": "relates-to",
+          "created_at": "2026-11-05T12:48:58Z",
+          "created_by": "Jurrid",
+          "metadata": "{}"
+        },
+        {
+          "issue_id": "demo-0ms.2",
+          "depends_on_id": "demo-0ms",
+          "type": "parent-child",
+          "created_at": "2026-11-05T12:48:44Z",
+          "created_by": "Jurrid",
+          "metadata": "{}"
+        }
+      ],
+      "dependency_count": 0,
+      "dependent_count": 0,
+      "comment_count": 0,
+      "parent": "demo-0ms"
+    },
+    {
+      "id": "demo-6t6",
+      "title": "Research: caching strategy for product pages",
+      "description": "Findings so far:\n\n\u003cdetails\u003e\n\u003csummary\u003eBenchmarks\u003c/summary\u003e\n\n| Strategy | p95 |\n|---|---|\n| none | 420ms |\n| full page | 35ms |\n\n\u003c/details\u003e\n\nRecommendation: full-page cache with tag invalidation.",
+      "status": "open",
+      "priority": 3,
+      "issue_type": "spike",
+      "owner": "jurrid@codeberry.nl",
+      "created_at": "2026-11-05T12:48:49Z",
+      "created_by": "claude-agent",
+      "updated_at": "2026-11-05T12:48:49Z",
+      "dependency_count": 0,
+      "dependent_count": 0,
+      "comment_count": 0
+    },
+    {
+      "id": "demo-3mz",
+      "title": "Write onboarding docs",
+      "description": "# Onboarding\n\nEverything a new developer needs.\n\n## Setup\n\n1. Clone the repo\n2. Run `composer setup`\n3. Open the app\n\n\u003e Ask in #dev when you get stuck.\n\nSee [the wiki](https://example.com/wiki) for more.",
+      "status": "open",
+      "priority": 4,
+      "issue_type": "task",
+      "owner": "jurrid@codeberry.nl",
+      "created_at": "2026-11-05T12:48:49Z",
+      "created_by": "Jurrid",
+      "updated_at": "2026-11-05T12:48:49Z",
+      "dependency_count": 0,
+      "dependent_count": 0,
+      "comment_count": 0
+    }
+  ],
+  "schema_version": 1
+}

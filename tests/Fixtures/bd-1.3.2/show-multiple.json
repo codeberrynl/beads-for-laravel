@@ -1,0 +1,103 @@
+{
+  "data": [
+    {
+      "id": "demo-ycn.3",
+      "title": "Payment step: support iDEAL",
+      "description": "Add iDEAL as a payment method in the new payment step.",
+      "design": "Use the provider's hosted page; we only store the payment reference.",
+      "status": "open",
+      "priority": 1,
+      "issue_type": "feature",
+      "owner": "jurrid@codeberry.nl",
+      "created_at": "2026-11-05T12:48:42Z",
+      "created_by": "Jurrid",
+      "updated_at": "2026-11-05T12:48:42Z",
+      "labels": [
+        "backend",
+        "checkout",
+        "payments"
+      ],
+      "dependencies": [
+        {
+          "id": "demo-rif",
+          "title": "Upgrade the payment SDK to v5",
+          "description": "v4 is end-of-life at the end of the month.",
+          "status": "open",
+          "priority": 0,
+          "issue_type": "chore",
+          "owner": "jurrid@codeberry.nl",
+          "created_at": "2026-11-05T12:48:46Z",
+          "created_by": "Jurrid",
+          "updated_at": "2026-11-05T12:48:46Z",
+          "labels": [
+            "backend",
+            "payments"
+          ],
+          "dependency_type": "blocks"
+        },
+        {
+          "id": "demo-ycn",
+          "title": "Checkout redesign",
+          "description": "Make checkout faster and clearer.\n\n## Goals\n\n- Fewer steps\n- Address autocomplete\n- Local payment methods",
+          "status": "open",
+          "priority": 1,
+          "issue_type": "epic",
+          "owner": "jurrid@codeberry.nl",
+          "created_at": "2026-11-05T12:48:39Z",
+          "created_by": "Jurrid",
+          "updated_at": "2026-11-05T12:48:39Z",
+          "labels": [
+            "checkout"
+          ],
+          "dependency_type": "parent-child"
+        }
+      ],
+      "parent": "demo-ycn",
+      "dependent_count": 0,
+      "dependency_count": 2,
+      "comment_count": 2,
+      "comments_omitted": true,
+      "revision": "7853247479397400334"
+    },
+    {
+      "id": "demo-5l4",
+      "title": "Rate limiting for the public API",
+      "notes": "Waiting for a decision on the limits per plan.",
+      "status": "blocked",
+      "priority": 2,
+      "issue_type": "feature",
+      "owner": "jurrid@codeberry.nl",
+      "created_at": "2026-11-05T12:48:50Z",
+      "created_by": "Jurrid",
+      "updated_at": "2026-11-05T12:48:50Z",
+      "labels": [
+        "api",
+        "backend"
+      ],
+      "dependencies": [
+        {
+          "id": "demo-rif",
+          "title": "Upgrade the payment SDK to v5",
+          "description": "v4 is end-of-life at the end of the month.",
+          "status": "open",
+          "priority": 0,
+          "issue_type": "chore",
+          "owner": "jurrid@codeberry.nl",
+          "created_at": "2026-11-05T12:48:46Z",
+          "created_by": "Jurrid",
+          "updated_at": "2026-11-05T12:48:46Z",
+          "labels": [
+            "backend",
+            "payments"
+          ],
+          "dependency_type": "blocks"
+        }
+      ],
+      "dependent_count": 1,
+      "dependency_count": 1,
+      "comment_count": 0,
+      "revision": "7541873231634328706"
+    }
+  ],
+  "schema_version": 1
+}

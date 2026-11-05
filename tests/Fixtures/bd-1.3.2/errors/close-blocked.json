@@ -1,0 +1,11 @@
+{
+    "command": [
+        "close",
+        "demo-ycn.3",
+        "--json",
+        "--sandbox"
+    ],
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "cannot close blocked issue: demo-ycn.3 is blocked by [demo-rif] (use --force to override)\n"
+}

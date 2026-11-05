@@ -88,9 +88,7 @@ final class BdException extends RuntimeException
      */
     private static function extractMessage(BdResult $result): array
     {
-        foreach ([$result->output, $result->errorOutput] as $stream) {
-            $decoded = BdResult::decode($stream);
-
+        foreach (self::jsonCandidates($result) as $decoded) {
             if (is_array($decoded) && isset($decoded['error']) && is_string($decoded['error'])) {
                 $message = $decoded['error'];
 
@@ -129,6 +127,33 @@ final class BdException extends RuntimeException
         $message = $messageLines !== [] ? self::clean($messageLines[0]) : "bd exited with code {$result->exitCode}.";
 
         return [$message, $hint];
+    }
+
+    /**
+     * JSON payloads in stdout or stderr: the whole stream, or single lines
+     * (bd may print a text line and a JSON line on the same stream).
+     *
+     * @return iterable<mixed>
+     */
+    private static function jsonCandidates(BdResult $result): iterable
+    {
+        foreach ([$result->output, $result->errorOutput] as $stream) {
+            $decoded = BdResult::decode($stream);
+
+            if ($decoded !== null) {
+                yield $decoded;
+
+                continue;
+            }
+
+            foreach (preg_split('/\R/', $stream) ?: [] as $line) {
+                $line = trim($line);
+
+                if ($line !== '' && $line[0] === '{') {
+                    yield BdResult::decode($line);
+                }
+            }
+        }
     }
 
     private static function clean(string $message): string

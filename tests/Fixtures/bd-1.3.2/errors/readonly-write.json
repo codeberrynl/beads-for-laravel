@@ -1,0 +1,13 @@
+{
+    "command": [
+        "update",
+        "demo-ycn.3",
+        "--priority=3",
+        "--json",
+        "--sandbox",
+        "--readonly"
+    ],
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "Error: operation 'update' is not allowed in read-only mode\n"
+}

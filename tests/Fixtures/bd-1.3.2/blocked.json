@@ -1,0 +1,93 @@
+{
+  "data": [
+    {
+      "id": "demo-ycn.3",
+      "title": "Payment step: support iDEAL",
+      "description": "Add iDEAL as a payment method in the new payment step.",
+      "design": "Use the provider's hosted page; we only store the payment reference.",
+      "status": "open",
+      "priority": 1,
+      "issue_type": "feature",
+      "owner": "jurrid@codeberry.nl",
+      "created_at": "2026-11-05T12:48:42Z",
+      "created_by": "Jurrid",
+      "updated_at": "2026-11-05T12:48:42Z",
+      "labels": [
+        "backend",
+        "checkout",
+        "payments"
+      ],
+      "blocked_by_count": 1,
+      "blocked_by": [
+        "demo-rif"
+      ]
+    },
+    {
+      "id": "demo-zkv.1",
+      "title": "Seller onboarding flow",
+      "status": "open",
+      "priority": 2,
+      "issue_type": "feature",
+      "owner": "jurrid@codeberry.nl",
+      "created_at": "2026-11-05T12:48:53Z",
+      "created_by": "Jurrid",
+      "updated_at": "2026-11-05T12:48:53Z",
+      "blocked_by_count": 1,
+      "blocked_by": [
+        "demo-zkv"
+      ]
+    },
+    {
+      "id": "demo-zkv",
+      "title": "Marketplace launch",
+      "description": "Let third-party sellers list products.",
+      "status": "open",
+      "priority": 2,
+      "issue_type": "epic",
+      "owner": "jurrid@codeberry.nl",
+      "created_at": "2026-11-05T12:48:52Z",
+      "created_by": "Jurrid",
+      "updated_at": "2026-11-05T12:48:52Z",
+      "blocked_by_count": 1,
+      "blocked_by": [
+        "demo-5l4"
+      ]
+    },
+    {
+      "id": "demo-5l4",
+      "title": "Rate limiting for the public API",
+      "notes": "Waiting for a decision on the limits per plan.",
+      "status": "blocked",
+      "priority": 2,
+      "issue_type": "feature",
+      "owner": "jurrid@codeberry.nl",
+      "created_at": "2026-11-05T12:48:50Z",
+      "created_by": "Jurrid",
+      "updated_at": "2026-11-05T12:48:50Z",
+      "labels": [
+        "api",
+        "backend"
+      ],
+      "blocked_by_count": 1,
+      "blocked_by": [
+        "demo-rif"
+      ]
+    },
+    {
+      "id": "demo-zkv.1.1",
+      "title": "Seller KYC check",
+      "status": "open",
+      "priority": 3,
+      "issue_type": "task",
+      "owner": "jurrid@codeberry.nl",
+      "created_at": "2026-11-05T12:48:53Z",
+      "created_by": "claude-agent",
+      "updated_at": "2026-11-05T12:48:53Z",
+      "blocked_by_count": 1,
+      "blocked_by": [
+        "demo-zkv.1"
+      ]
+    }
+  ],
+  "schema_version": 1
+}

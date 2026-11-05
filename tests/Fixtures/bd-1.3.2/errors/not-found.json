@@ -1,0 +1,12 @@
+{
+    "command": [
+        "show",
+        "demo-doesnotexist",
+        "--json",
+        "--sandbox",
+        "--readonly"
+    ],
+    "exit_code": 1,
+    "stdout": "{\n  \"data\": {\n    \"error\": \"no issues found matching the provided IDs\",\n    \"hint\": \"some IDs may reference deleted/purged records with no trace left in the live database — try 'bd history \\u003cid\\u003e' to check\"\n  },\n  \"schema_version\": 1\n}\n",
+    "stderr": "Issue demo-doesnotexist not found\nHint: this ID may have never existed, or may reference a deleted/purged record with no trace left in the live database — try 'bd history demo-doesnotexist'\n"
+}

@@ -161,11 +161,23 @@ class DemoCommand extends Command
             'labels' => 'payments,backend',
             'description' => 'v4 is end-of-life at the end of the month.',
         ]);
-        $this->create($this->human, [
+        $ci = $this->create($this->human, [
             'title' => 'Migrate CI to GitHub Actions',
             'type' => 'chore',
             'priority' => 3,
             'defer' => '+14d',
+        ]);
+        $this->create($this->human, [
+            'title' => 'Port the deploy job',
+            'type' => 'task',
+            'priority' => 3,
+            'parent' => $ci,
+        ]);
+        $cluster = $this->create($this->human, [
+            'title' => 'Set up the search cluster',
+            'type' => 'task',
+            'priority' => 2,
+            'labels' => 'infra',
         ]);
         $this->create($this->human, [
             'title' => 'Write onboarding docs',
@@ -201,6 +213,24 @@ class DemoCommand extends Command
             'status' => 'pinned',
             'description' => 'Squash merges, conventional commits, reviews within one day.',
         ]);
+        $marketplace = $this->create($this->human, [
+            'title' => 'Marketplace launch',
+            'type' => 'epic',
+            'priority' => 2,
+            'description' => 'Let third-party sellers list products.',
+        ]);
+        $sellerOnboarding = $this->create($this->human, [
+            'title' => 'Seller onboarding flow',
+            'type' => 'feature',
+            'priority' => 2,
+            'parent' => $marketplace,
+        ]);
+        $this->create($this->agent, [
+            'title' => 'Seller KYC check',
+            'type' => 'task',
+            'priority' => 3,
+            'parent' => $sellerOnboarding,
+        ]);
         $flaky = $this->create($this->agent, [
             'title' => 'Fix flaky test in OrderTest',
             'type' => 'bug',
@@ -215,6 +245,8 @@ class DemoCommand extends Command
         // Relations.
         $this->human->write(['dep', 'add', $ideal, $sdk], ['type' => 'blocks']);
         $this->human->write(['dep', 'add', $rateLimit, $sdk], ['type' => 'blocks']);
+        $this->human->write(['dep', 'add', $marketplace, $rateLimit], ['type' => 'blocks']);
+        $this->human->write(['dep', 'add', $variants, $cluster], ['type' => 'blocks']);
         $this->human->write(['dep', 'relate', $typos, $variants]);
         $this->human->write(['dep', 'relate', $flicker, $safari]);
 
@@ -227,6 +259,7 @@ class DemoCommand extends Command
         // Closed issues.
         $this->human->write(['close', $design], ['reason' => 'Approved in the design review.']);
         $this->agent->write(['close', $flaky], ['reason' => 'Fixed the time-dependent assertion.']);
+        $this->human->write(['close', $cluster], ['reason' => 'Cluster is live.']);
 
         return true;
     }

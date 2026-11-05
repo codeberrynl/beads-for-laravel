@@ -1,0 +1,12 @@
+{
+    "command": [
+        "update",
+        "demo-ycn.3",
+        "--status=closed",
+        "--json",
+        "--sandbox"
+    ],
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "Error updating demo-ycn.3: cannot close blocked issue: demo-ycn.3 is blocked by [demo-rif]\n{\"data\":{\"error\":\"1 of 1 issues failed to update\",\"failed\":[{\"id\":\"demo-ycn.3\",\"error\":\"updating issue: cannot close blocked issue: demo-ycn.3 is blocked by [demo-rif]\"}]},\"schema_version\":1}\n"
+}

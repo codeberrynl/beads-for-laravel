@@ -1,0 +1,28 @@
+{
+    "bd_version": "1.3.2",
+    "recorded_at": "2026-11-05T12:49:06Z",
+    "ids": {
+        "Upgrade the payment SDK to v5": "demo-rif",
+        "Search results flicker on slow connections": "demo-0ms.3",
+        "Payment step: support iDEAL": "demo-ycn.3",
+        "Design the new checkout flow": "demo-ycn.1",
+        "Checkout redesign": "demo-ycn",
+        "Fix flaky test in OrderTest": "demo-9sl",
+        "Seller onboarding flow": "demo-zkv.1",
+        "Marketplace launch": "demo-zkv",
+        "Rate limiting for the public API": "demo-5l4",
+        "Set up the search cluster": "demo-ioc",
+        "Index product variants": "demo-0ms.1",
+        "Checkout button misaligned on Safari": "demo-ycn.4",
+        "Implement address autocomplete": "demo-ycn.2",
+        "Search improvements": "demo-0ms",
+        "Seller KYC check": "demo-zkv.1.1",
+        "Dark mode for the admin": "demo-2k8",
+        "Research: caching strategy for product pages": "demo-6t6",
+        "Migrate CI to GitHub Actions": "demo-zje",
+        "Port the deploy job": "demo-zje.1",
+        "Typo tolerance for search queries": "demo-0ms.2",
+        "Team conventions": "demo-b7e",
+        "Write onboarding docs": "demo-3mz"
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "command": [
+        "close",
+        "demo-b7e",
+        "--json",
+        "--sandbox"
+    ],
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "cannot modify pinned issue demo-b7e (use --force to override)\n"
+}
