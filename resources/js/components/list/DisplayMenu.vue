@@ -13,7 +13,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-defineProps<{ display: DisplayOptions; groupable?: boolean }>()
+withDefaults(defineProps<{ display: DisplayOptions; groupable?: boolean }>(), { groupable: true })
 const emit = defineEmits<{ change: [patch: Partial<DisplayOptions>] }>()
 </script>
 
@@ -26,7 +26,7 @@ const emit = defineEmits<{ change: [patch: Partial<DisplayOptions>] }>()
       </Button>
     </DropdownMenuTrigger>
     <DropdownMenuContent align="end" class="w-48">
-      <template v-if="groupable !== false">
+      <template v-if="groupable">
         <DropdownMenuLabel class="text-xs text-muted-foreground">{{ t('display.grouping') }}</DropdownMenuLabel>
         <DropdownMenuRadioGroup :model-value="display.group" @update:model-value="(value) => emit('change', { group: value as GroupBy })">
           <DropdownMenuRadioItem v-for="group in GROUPS" :key="group" :value="group">{{ t(`display.group.${group}`) }}</DropdownMenuRadioItem>

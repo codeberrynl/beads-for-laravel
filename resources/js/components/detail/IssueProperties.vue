@@ -11,7 +11,7 @@ import { usePickerOptions } from '@/composables/usePickerOptions'
 import { useIssueActions } from '@/composables/useIssueActions'
 import { useWorkspace } from '@/composables/useWorkspace'
 import { useSnapshot } from '@/composables/useBeads'
-import { statusLabel, toneOf } from '@/lib/status'
+import { isDone, statusLabel, toneOf } from '@/lib/status'
 import { priorityLabel } from '@/lib/priority'
 import { typeLabel } from '@/lib/types-meta'
 import { t } from '@/lib/i18n'
@@ -35,6 +35,15 @@ function save(fields: UpdateFields) {
   void actions.update(props.issue.id, fields).catch(() => undefined)
 }
 
+/** A done status goes through bd close (closed_at, refusals), the rest is an update. */
+function setStatus(status: string) {
+  if (isDone(status, statuses.value) && status === 'closed') {
+    void actions.close(props.issue.id).catch(() => undefined)
+    return
+  }
+  save({ status })
+}
+
 function toggleLabel(label: string) {
   save(props.issue.labels.includes(label) ? { labels: { remove: [label] } } : { labels: { add: [label] } })
 }
@@ -48,7 +57,7 @@ const buttonClass = 'flex h-7 min-w-0 items-center gap-2 rounded-md px-1.5 text-
   <div class="space-y-0.5">
     <div :class="rowClass">
       <span :class="labelClass">{{ t('status.label') }}</span>
-      <OptionPicker :options="statusOptions" :selected="[issue.status]" :placeholder="t('status.change')" @select="(status) => save({ status })">
+      <OptionPicker :options="statusOptions" :selected="[issue.status]" :placeholder="t('status.change')" @select="setStatus">
         <button type="button" :class="buttonClass"><StatusIcon :tone="toneOf(issue.status, statuses)" /> {{ statusLabel(issue.status) }}</button>
       </OptionPicker>
     </div>

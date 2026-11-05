@@ -4,6 +4,9 @@ import { RouterLink } from 'vue-router'
 import { ChevronRight, Link2, Maximize2, X } from '@lucide/vue'
 import IssueProperties from '@/components/detail/IssueProperties.vue'
 import TextSections from '@/components/detail/TextSections.vue'
+import RelationsSection from '@/components/detail/RelationsSection.vue'
+import CommentsThread from '@/components/detail/CommentsThread.vue'
+import IssueActions from '@/components/detail/IssueActions.vue'
 import TitleField from '@/components/editor/TitleField.vue'
 import AgentBadge from '@/components/badges/AgentBadge.vue'
 import BlockedIndicator from '@/components/badges/BlockedIndicator.vue'
@@ -53,7 +56,7 @@ async function copyId() {
       <button type="button" class="tabular-nums text-muted-foreground hover:text-foreground" :title="t('detail.copyId')" @click="copyId">{{ id }}</button>
 
       <div class="ml-auto flex items-center gap-0.5">
-        <slot name="actions" :issue="issue" />
+        <IssueActions v-if="issue" :issue="issue" />
         <Tooltip>
           <TooltipTrigger as-child>
             <button type="button" class="grid size-7 place-items-center rounded-md text-muted-foreground hover:bg-accent hover:text-foreground" :aria-label="t('detail.copyLink')" @click="copyLink">
@@ -108,7 +111,8 @@ async function copyId() {
 
         <TextSections :issue="issue" />
 
-        <slot name="after" :issue="issue" :payload="payload" />
+        <RelationsSection v-if="payload" :issue="issue" :relations="payload.relations" :issues="payload.issues" />
+        <CommentsThread :issue="issue" />
 
         <p class="mt-8 text-[12px] text-subtle">
           <span :title="fullDate(issue.created_at)">{{ t('detail.created', { date: relativeTime(issue.created_at), name: issue.created_by ?? t('app.unknown') }) }}</span>
