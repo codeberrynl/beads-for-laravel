@@ -12,6 +12,7 @@ import { viewCounts } from '@/lib/issues'
 import { t } from '@/lib/i18n'
 import CommandPalette from '@/components/CommandPalette.vue'
 import SidePeek from '@/components/detail/SidePeek.vue'
+import CreateIssueDialog from '@/components/create/CreateIssueDialog.vue'
 import { usePalette } from '@/composables/usePalette'
 import { useCreateDialog } from '@/composables/useCreateDialog'
 import { useShortcut } from '@/composables/useShortcut'
@@ -70,6 +71,7 @@ async function recheck() {
         <SidePeek />
       </main>
       <CommandPalette />
+      <CreateIssueDialog />
     </div>
     <Toaster position="bottom-right" :theme="'system'" />
   </TooltipProvider>
