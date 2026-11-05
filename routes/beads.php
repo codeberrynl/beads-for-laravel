@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Codeberry\Beads\Http\Controllers\Api\BootstrapController;
 use Codeberry\Beads\Http\Controllers\Api\IssuesController;
+use Codeberry\Beads\Http\Controllers\Api\IssueStateController;
 use Codeberry\Beads\Http\Controllers\Api\SnapshotController;
 use Codeberry\Beads\Http\Controllers\SpaController;
 use Codeberry\Beads\Http\Middleware\EnsureHealthy;
@@ -18,6 +19,8 @@ Route::prefix('api')->name('api.')->group(function (): void {
         Route::get('issues/{id}', [IssuesController::class, 'show'])->where('id', IssueId::PATTERN)->name('issues.show');
         Route::post('issues', [IssuesController::class, 'store'])->name('issues.store');
         Route::patch('issues/{id}', [IssuesController::class, 'update'])->where('id', IssueId::PATTERN)->name('issues.update');
+        Route::post('issues/{id}/close', [IssueStateController::class, 'close'])->where('id', IssueId::PATTERN)->name('issues.close');
+        Route::post('issues/{id}/reopen', [IssueStateController::class, 'reopen'])->where('id', IssueId::PATTERN)->name('issues.reopen');
     });
 
     Route::any('{any?}', fn () => response()->json(['error' => ['code' => 'not_found', 'message' => 'Unknown API endpoint.']], 404))
