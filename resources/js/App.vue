@@ -10,6 +10,10 @@ import { healthOverride, useSnapshot } from '@/composables/useBeads'
 import { useWorkspace } from '@/composables/useWorkspace'
 import { viewCounts } from '@/lib/issues'
 import { t } from '@/lib/i18n'
+import CommandPalette from '@/components/CommandPalette.vue'
+import { usePalette } from '@/composables/usePalette'
+import { useCreateDialog } from '@/composables/useCreateDialog'
+import { useShortcut } from '@/composables/useShortcut'
 
 const { bootstrap, statuses, actor, workspaceName } = useWorkspace()
 const snapshot = useSnapshot()
@@ -26,6 +30,18 @@ const health = computed(() => {
 
 const ready = computed(() => bootstrap.data.value !== undefined && health.value === null)
 const counts = computed(() => viewCounts(snapshot.rows.value, { actor: actor.value, statuses: statuses.value }))
+
+const palette = usePalette()
+const createDialog = useCreateDialog()
+
+useShortcut('mod+k', () => {
+  palette.open.value = !palette.open.value
+}, { inOverlay: true })
+
+useShortcut('c', () => {
+  if (!ready.value) return false
+  createDialog.open()
+})
 
 async function recheck() {
   healthOverride.value = null
@@ -47,10 +63,11 @@ async function recheck() {
     />
     <HealthScreen v-else-if="health" :health="health" :checking="bootstrap.isFetching.value" @retry="recheck" />
     <div v-else-if="ready" class="flex h-full">
-      <AppSidebar :workspace="workspaceName" :actor="actor" :counts="counts" />
+      <AppSidebar :workspace="workspaceName" :actor="actor" :counts="counts" @search="palette.show" @create="createDialog.open()" />
       <main class="min-w-0 flex-1 bg-background">
         <RouterView />
       </main>
+      <CommandPalette />
     </div>
     <Toaster position="bottom-right" :theme="'system'" />
   </TooltipProvider>

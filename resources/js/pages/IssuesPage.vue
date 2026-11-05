@@ -16,6 +16,7 @@ import { useCreateDialog } from '@/composables/useCreateDialog'
 import { applyFilters, groupRows, hasFilters, sortRows, type IssueGroup } from '@/lib/filters'
 import { inView, type ListView } from '@/lib/issues'
 import { t } from '@/lib/i18n'
+import { useShortcut } from '@/composables/useShortcut'
 
 const route = useRoute()
 const router = useRouter()
@@ -70,6 +71,29 @@ function createIn(group: IssueGroup) {
 
   createDialog.open(prefill)
 }
+
+function step(delta: number) {
+  const ids = list.value?.visibleIds ?? []
+  if (!ids.length) return
+  const current = activeId.value ? ids.indexOf(activeId.value) : -1
+  const next = current === -1 ? (delta > 0 ? 0 : ids.length - 1) : Math.min(ids.length - 1, Math.max(0, current + delta))
+  activeId.value = ids[next] ?? null
+  // With the peek open, J/K walk through the issues in it.
+  if (peek.peekId.value && activeId.value) peek.open(activeId.value)
+}
+
+useShortcut(['j', 'arrowdown'], () => step(1))
+useShortcut(['k', 'arrowup'], () => step(-1))
+useShortcut('enter', () => {
+  if (!activeId.value) return false
+  peek.open(activeId.value)
+})
+useShortcut('/', () => search.value?.focus())
+
+// Keep the cursor on the issue shown in the peek.
+watch(() => peek.peekId.value, (id) => {
+  if (id) activeId.value = id
+})
 
 defineExpose({ list, search, activeId })
 </script>

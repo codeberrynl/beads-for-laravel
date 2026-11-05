@@ -15,7 +15,8 @@ export function usePeek() {
         void router.push({ name: 'issue', params: { id } })
         return
       }
-      void router.push({ query: { ...route.query, peek: id } })
+      const query = { ...route.query, peek: id }
+      void (route.query.peek ? router.replace({ query }) : router.push({ query }))
     },
     close: () => {
       const { peek: _peek, ...query } = route.query
