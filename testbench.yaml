@@ -2,3 +2,28 @@ laravel: '@testbench'
 
 providers:
   - Codeberry\Beads\BeadsServiceProvider
+  - Workbench\App\Providers\WorkbenchServiceProvider
+
+env:
+  - APP_ENV=local
+  - APP_DEBUG=true
+  - APP_KEY=base64:YmVhZHMtZm9yLWxhcmF2ZWwtd29ya2JlbmNoLWtleSE=
+  - SESSION_DRIVER=file
+  - CACHE_STORE=file
+  - BEADS_PATH=workbench/demo
+
+workbench:
+  start: '/beads'
+  install: false
+  health: false
+  discovers:
+    web: false
+    api: false
+    commands: false
+    components: false
+    factories: false
+    views: false
+  build:
+    - asset-publish
+  assets:
+    - beads-assets
