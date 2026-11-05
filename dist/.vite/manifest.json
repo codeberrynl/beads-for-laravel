@@ -1,4 +1,129 @@
 {
+  "_BlockedIndicator-C5CsC-mZ.js": {
+    "file": "assets/BlockedIndicator-C5CsC-mZ.js",
+    "name": "BlockedIndicator",
+    "imports": [
+      "_types-meta-Bv_-x3Zr.js",
+      "_UserAvatar-R09EmrHT.js",
+      "resources/js/app.ts"
+    ]
+  },
+  "_IssueDetail-4B0PfOnr.js": {
+    "file": "assets/IssueDetail-4B0PfOnr.js",
+    "name": "IssueDetail",
+    "imports": [
+      "_types-meta-Bv_-x3Zr.js",
+      "_usePeek-w2Zfyym2.js",
+      "_UserAvatar-R09EmrHT.js",
+      "_button-kABJiuq7.js",
+      "_chevron-right-C08LLvPP.js",
+      "_BlockedIndicator-C5CsC-mZ.js",
+      "_plus-Bh_XFQ6_.js",
+      "_usePickerOptions-C20h1vmJ.js",
+      "resources/js/app.ts",
+      "_useIssueActions-Dt5Z0E0f.js",
+      "_time-Bhb8rr-1.js"
+    ]
+  },
+  "_IssueListRow-BfaNlm57.js": {
+    "file": "assets/IssueListRow-BfaNlm57.js",
+    "name": "IssueListRow",
+    "imports": [
+      "_types-meta-Bv_-x3Zr.js",
+      "_PriorityBadge-CJTnv9Es.js",
+      "_BlockedIndicator-C5CsC-mZ.js",
+      "_UserAvatar-R09EmrHT.js",
+      "_usePeek-w2Zfyym2.js",
+      "_time-Bhb8rr-1.js",
+      "resources/js/app.ts"
+    ]
+  },
+  "_PriorityBadge-CJTnv9Es.js": {
+    "file": "assets/PriorityBadge-CJTnv9Es.js",
+    "name": "PriorityBadge",
+    "imports": [
+      "_types-meta-Bv_-x3Zr.js",
+      "resources/js/app.ts"
+    ]
+  },
+  "_UserAvatar-R09EmrHT.js": {
+    "file": "assets/UserAvatar-R09EmrHT.js",
+    "name": "UserAvatar",
+    "imports": [
+      "_types-meta-Bv_-x3Zr.js"
+    ]
+  },
+  "_button-kABJiuq7.js": {
+    "file": "assets/button-kABJiuq7.js",
+    "name": "button",
+    "imports": [
+      "_types-meta-Bv_-x3Zr.js"
+    ]
+  },
+  "_chevron-right-C08LLvPP.js": {
+    "file": "assets/chevron-right-C08LLvPP.js",
+    "name": "chevron-right",
+    "imports": [
+      "_types-meta-Bv_-x3Zr.js"
+    ]
+  },
+  "_plus-Bh_XFQ6_.js": {
+    "file": "assets/plus-Bh_XFQ6_.js",
+    "name": "plus",
+    "imports": [
+      "_types-meta-Bv_-x3Zr.js"
+    ]
+  },
+  "_time-Bhb8rr-1.js": {
+    "file": "assets/time-Bhb8rr-1.js",
+    "name": "time",
+    "imports": [
+      "_types-meta-Bv_-x3Zr.js"
+    ]
+  },
+  "_types-meta-Bv_-x3Zr.js": {
+    "file": "assets/types-meta-Bv_-x3Zr.js",
+    "name": "types-meta"
+  },
+  "_useIssueActions-Dt5Z0E0f.js": {
+    "file": "assets/useIssueActions-Dt5Z0E0f.js",
+    "name": "useIssueActions",
+    "imports": [
+      "_usePeek-w2Zfyym2.js",
+      "resources/js/app.ts",
+      "_types-meta-Bv_-x3Zr.js"
+    ]
+  },
+  "_useListState-H9yyjHFu.js": {
+    "file": "assets/useListState-H9yyjHFu.js",
+    "name": "useListState",
+    "imports": [
+      "_types-meta-Bv_-x3Zr.js",
+      "_usePeek-w2Zfyym2.js",
+      "_UserAvatar-R09EmrHT.js",
+      "_button-kABJiuq7.js",
+      "_chevron-right-C08LLvPP.js",
+      "resources/js/app.ts"
+    ]
+  },
+  "_usePeek-w2Zfyym2.js": {
+    "file": "assets/usePeek-w2Zfyym2.js",
+    "name": "usePeek",
+    "imports": [
+      "_types-meta-Bv_-x3Zr.js"
+    ]
+  },
+  "_usePickerOptions-C20h1vmJ.js": {
+    "file": "assets/usePickerOptions-C20h1vmJ.js",
+    "name": "usePickerOptions",
+    "imports": [
+      "_types-meta-Bv_-x3Zr.js",
+      "_usePeek-w2Zfyym2.js",
+      "_UserAvatar-R09EmrHT.js",
+      "_button-kABJiuq7.js",
+      "_plus-Bh_XFQ6_.js"
+    ]
+  },
   "node_modules/@fontsource-variable/inter/files/inter-cyrillic-ext-wght-normal.woff2": {
     "file": "assets/inter-cyrillic-ext-wght-normal-BOeWTOD4.woff2",
     "src": "node_modules/@fontsource-variable/inter/files/inter-cyrillic-ext-wght-normal.woff2"
@@ -28,12 +153,26 @@
     "src": "node_modules/@fontsource-variable/inter/files/inter-vietnamese-wght-normal.woff2"
   },
   "resources/js/app.ts": {
-    "file": "assets/app-Bl_y9BaL.js",
+    "file": "assets/app-C0XMHXa3.js",
     "name": "app",
     "src": "resources/js/app.ts",
     "isEntry": true,
+    "imports": [
+      "_types-meta-Bv_-x3Zr.js",
+      "_usePeek-w2Zfyym2.js",
+      "_button-kABJiuq7.js"
+    ],
+    "dynamicImports": [
+      "resources/js/components/detail/SidePeek.vue",
+      "resources/js/components/create/CreateIssueDialog.vue",
+      "resources/js/pages/IssuesPage.vue",
+      "resources/js/pages/BoardPage.vue",
+      "resources/js/pages/EpicsPage.vue",
+      "resources/js/pages/IssuePage.vue",
+      "resources/js/pages/UiGalleryPage.vue"
+    ],
     "css": [
-      "assets/app-CwFyo_Zz.css"
+      "assets/app-D9e-Ogk3.css"
     ],
     "assets": [
       "assets/inter-cyrillic-ext-wght-normal-BOeWTOD4.woff2",
@@ -43,6 +182,106 @@
       "assets/inter-vietnamese-wght-normal-CBcvBZtf.woff2",
       "assets/inter-latin-ext-wght-normal-DO1Apj_S.woff2",
       "assets/inter-latin-wght-normal-Dx4kXJAl.woff2"
+    ]
+  },
+  "resources/js/components/create/CreateIssueDialog.vue": {
+    "file": "assets/CreateIssueDialog-zZWGAG9k.js",
+    "name": "CreateIssueDialog",
+    "src": "resources/js/components/create/CreateIssueDialog.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_types-meta-Bv_-x3Zr.js",
+      "resources/js/app.ts",
+      "_plus-Bh_XFQ6_.js",
+      "_button-kABJiuq7.js",
+      "_usePickerOptions-C20h1vmJ.js",
+      "_UserAvatar-R09EmrHT.js",
+      "_usePeek-w2Zfyym2.js",
+      "_useIssueActions-Dt5Z0E0f.js"
+    ]
+  },
+  "resources/js/components/detail/SidePeek.vue": {
+    "file": "assets/SidePeek-By4pp4Ma.js",
+    "name": "SidePeek",
+    "src": "resources/js/components/detail/SidePeek.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_types-meta-Bv_-x3Zr.js",
+      "_IssueDetail-4B0PfOnr.js",
+      "_usePeek-w2Zfyym2.js",
+      "resources/js/app.ts"
+    ]
+  },
+  "resources/js/pages/BoardPage.vue": {
+    "file": "assets/BoardPage-D2gJzfeF.js",
+    "name": "BoardPage",
+    "src": "resources/js/pages/BoardPage.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_types-meta-Bv_-x3Zr.js",
+      "_plus-Bh_XFQ6_.js",
+      "resources/js/app.ts",
+      "_PriorityBadge-CJTnv9Es.js",
+      "_UserAvatar-R09EmrHT.js",
+      "_BlockedIndicator-C5CsC-mZ.js",
+      "_useListState-H9yyjHFu.js",
+      "_usePeek-w2Zfyym2.js",
+      "_useIssueActions-Dt5Z0E0f.js"
+    ]
+  },
+  "resources/js/pages/EpicsPage.vue": {
+    "file": "assets/EpicsPage-8nkR6Ozd.js",
+    "name": "EpicsPage",
+    "src": "resources/js/pages/EpicsPage.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_types-meta-Bv_-x3Zr.js",
+      "_chevron-right-C08LLvPP.js",
+      "_plus-Bh_XFQ6_.js",
+      "_PriorityBadge-CJTnv9Es.js",
+      "_UserAvatar-R09EmrHT.js",
+      "_IssueListRow-BfaNlm57.js",
+      "_usePeek-w2Zfyym2.js",
+      "resources/js/app.ts"
+    ]
+  },
+  "resources/js/pages/IssuePage.vue": {
+    "file": "assets/IssuePage-DdW8y6IT.js",
+    "name": "IssuePage",
+    "src": "resources/js/pages/IssuePage.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_types-meta-Bv_-x3Zr.js",
+      "_IssueDetail-4B0PfOnr.js"
+    ]
+  },
+  "resources/js/pages/IssuesPage.vue": {
+    "file": "assets/IssuesPage-BucI_Tf4.js",
+    "name": "IssuesPage",
+    "src": "resources/js/pages/IssuesPage.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_types-meta-Bv_-x3Zr.js",
+      "_usePeek-w2Zfyym2.js",
+      "resources/js/app.ts",
+      "_PriorityBadge-CJTnv9Es.js",
+      "_chevron-right-C08LLvPP.js",
+      "_plus-Bh_XFQ6_.js",
+      "_IssueListRow-BfaNlm57.js",
+      "_UserAvatar-R09EmrHT.js",
+      "_useListState-H9yyjHFu.js"
+    ]
+  },
+  "resources/js/pages/UiGalleryPage.vue": {
+    "file": "assets/UiGalleryPage-CUfcKn8_.js",
+    "name": "UiGalleryPage",
+    "src": "resources/js/pages/UiGalleryPage.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_types-meta-Bv_-x3Zr.js",
+      "_PriorityBadge-CJTnv9Es.js",
+      "_UserAvatar-R09EmrHT.js",
+      "_BlockedIndicator-C5CsC-mZ.js"
     ]
   }
 }

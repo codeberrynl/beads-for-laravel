@@ -5,7 +5,7 @@ import { defineConfig, type Plugin } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import tailwindcss from '@tailwindcss/vite'
 
-const hotFile = resolve(__dirname, 'hot')
+const hotFile = resolve(import.meta.dirname, 'hot')
 
 /**
  * Writes the dev server URL to ./hot while `npm run dev` runs, so the

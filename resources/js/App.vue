@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, defineAsyncComponent } from 'vue'
 import { RouterView } from 'vue-router'
 import AppSidebar from '@/components/AppSidebar.vue'
 import HealthScreen from '@/components/HealthScreen.vue'
@@ -11,11 +11,14 @@ import { useWorkspace } from '@/composables/useWorkspace'
 import { viewCounts } from '@/lib/issues'
 import { t } from '@/lib/i18n'
 import CommandPalette from '@/components/CommandPalette.vue'
-import SidePeek from '@/components/detail/SidePeek.vue'
-import CreateIssueDialog from '@/components/create/CreateIssueDialog.vue'
 import { usePalette } from '@/composables/usePalette'
 import { useCreateDialog } from '@/composables/useCreateDialog'
 import { useShortcut } from '@/composables/useShortcut'
+import { useTheme } from '@/composables/useTheme'
+
+// The editor (Tiptap) is only loaded when a detail or the create modal opens.
+const SidePeek = defineAsyncComponent(() => import('@/components/detail/SidePeek.vue'))
+const CreateIssueDialog = defineAsyncComponent(() => import('@/components/create/CreateIssueDialog.vue'))
 
 const { bootstrap, statuses, actor, workspaceName } = useWorkspace()
 const snapshot = useSnapshot()
@@ -33,6 +36,7 @@ const health = computed(() => {
 const ready = computed(() => bootstrap.data.value !== undefined && health.value === null)
 const counts = computed(() => viewCounts(snapshot.rows.value, { actor: actor.value, statuses: statuses.value }))
 
+const theme = useTheme()
 const palette = usePalette()
 const createDialog = useCreateDialog()
 
@@ -73,6 +77,6 @@ async function recheck() {
       <CommandPalette />
       <CreateIssueDialog />
     </div>
-    <Toaster position="bottom-right" :theme="'system'" />
+    <Toaster position="bottom-right" :theme="theme.resolved.value" />
   </TooltipProvider>
 </template>

@@ -1,0 +1,1 @@
+import{at as e,dt as t,wt as n}from"./types-meta-Bv_-x3Zr.js";import{t as r}from"./IssueDetail-4B0PfOnr.js";var i=t({__name:`IssuePage`,props:{id:{}},setup(t){return(i,a)=>(n(),e(r,{id:t.id,key:t.id,mode:`page`},null,8,[`id`]))}});export{i as default};

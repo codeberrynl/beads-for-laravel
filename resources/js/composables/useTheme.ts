@@ -1,4 +1,4 @@
-import { ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 export type ThemeChoice = 'system' | 'light' | 'dark'
 
@@ -15,6 +15,7 @@ function read(): ThemeChoice {
 }
 
 const choice = ref<ThemeChoice>(read())
+const systemLight = ref(media?.matches === true)
 
 /** Dark-first: dark unless the choice (or the system) says light. */
 function apply(): void {
@@ -31,7 +32,10 @@ watch(choice, (value) => {
   apply()
 })
 
-media?.addEventListener('change', apply)
+media?.addEventListener('change', () => {
+  systemLight.value = media.matches
+  apply()
+})
 apply()
 
 export function useTheme() {
@@ -39,6 +43,7 @@ export function useTheme() {
 
   return {
     choice,
+    resolved: computed<'light' | 'dark'>(() => (choice.value === 'light' || (choice.value === 'system' && systemLight.value) ? 'light' : 'dark')),
     setTheme: (value: ThemeChoice) => {
       choice.value = value
     },

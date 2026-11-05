@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Codeberry\Beads\Tests;
 
 use Codeberry\Beads\BeadsServiceProvider;
+use Codeberry\Beads\Support\AssetManifest;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\Application;
 use Orchestra\Testbench\TestCase as Orchestra;
@@ -20,6 +21,20 @@ class TestCase extends Orchestra
     protected static ?\Closure $bootingCallback = null;
 
     protected ?string $sandboxPath = null;
+
+    protected function setUp(): void
+    {
+        // A running `npm run dev` writes ./hot; tests must not depend on it.
+        $this->afterApplicationCreated(function (): void {
+            $this->app->instance(AssetManifest::class, new AssetManifest(
+                BeadsServiceProvider::packagePath('dist'),
+                public_path('vendor/beads'),
+                $this->sandbox('package').'/hot',
+            ));
+        });
+
+        parent::setUp();
+    }
 
     protected function tearDown(): void
     {
