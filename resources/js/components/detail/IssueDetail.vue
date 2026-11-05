@@ -3,6 +3,8 @@ import { computed, toRef } from 'vue'
 import { RouterLink } from 'vue-router'
 import { ChevronRight, Link2, Maximize2, X } from '@lucide/vue'
 import IssueProperties from '@/components/detail/IssueProperties.vue'
+import TextSections from '@/components/detail/TextSections.vue'
+import TitleField from '@/components/editor/TitleField.vue'
 import AgentBadge from '@/components/badges/AgentBadge.vue'
 import BlockedIndicator from '@/components/badges/BlockedIndicator.vue'
 import TypeIcon from '@/components/icons/TypeIcon.vue'
@@ -97,17 +99,15 @@ async function copyId() {
           <BlockedIndicator v-if="issue.blocked_by.length" :blocked-by="issue.blocked_by" />
         </div>
 
-        <slot name="title" :issue="issue">
-          <h1 class="text-[20px] font-semibold leading-snug">{{ issue.title }}</h1>
-        </slot>
+        <TitleField :key="`${issue.id}-title`" :issue-id="issue.id" :value="issue.title" />
 
-        <div v-if="mode === 'peek'" class="mt-4 rounded-lg border px-3 py-2">
+        <div v-if="mode === 'peek'" class="mt-1 rounded-lg border px-3 py-2">
           <IssueProperties :issue="issue" :related="related" />
         </div>
 
-        <slot name="body" :issue="issue" :payload="payload">
-          <div class="mt-5 whitespace-pre-wrap text-[13.5px] leading-relaxed text-foreground/90">{{ issue.description }}</div>
-        </slot>
+        <TextSections :issue="issue" />
+
+        <slot name="after" :issue="issue" :payload="payload" />
 
         <p class="mt-8 text-[12px] text-subtle">
           <span :title="fullDate(issue.created_at)">{{ t('detail.created', { date: relativeTime(issue.created_at), name: issue.created_by ?? t('app.unknown') }) }}</span>
