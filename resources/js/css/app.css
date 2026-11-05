@@ -144,7 +144,6 @@
   }
 
   html {
-    font-size: 13px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color-scheme: light;
@@ -155,7 +154,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-sans text-[13px];
     font-feature-settings: 'cv11', 'ss01';
     text-rendering: optimizeLegibility;
   }
