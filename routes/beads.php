@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Codeberry\Beads\Http\Controllers\Api\BootstrapController;
 use Codeberry\Beads\Http\Controllers\Api\IssuesController;
 use Codeberry\Beads\Http\Controllers\Api\IssueStateController;
+use Codeberry\Beads\Http\Controllers\Api\RelationsController;
 use Codeberry\Beads\Http\Controllers\Api\SnapshotController;
 use Codeberry\Beads\Http\Controllers\SpaController;
 use Codeberry\Beads\Http\Middleware\EnsureHealthy;
@@ -21,6 +22,9 @@ Route::prefix('api')->name('api.')->group(function (): void {
         Route::patch('issues/{id}', [IssuesController::class, 'update'])->where('id', IssueId::PATTERN)->name('issues.update');
         Route::post('issues/{id}/close', [IssueStateController::class, 'close'])->where('id', IssueId::PATTERN)->name('issues.close');
         Route::post('issues/{id}/reopen', [IssueStateController::class, 'reopen'])->where('id', IssueId::PATTERN)->name('issues.reopen');
+        Route::post('issues/{id}/relations', [RelationsController::class, 'store'])->where('id', IssueId::PATTERN)->name('relations.store');
+        Route::delete('issues/{id}/relations', [RelationsController::class, 'destroy'])->where('id', IssueId::PATTERN)->name('relations.destroy');
+        Route::post('issues/{id}/comments', [RelationsController::class, 'comment'])->where('id', IssueId::PATTERN)->name('comments.store');
     });
 
     Route::any('{any?}', fn () => response()->json(['error' => ['code' => 'not_found', 'message' => 'Unknown API endpoint.']], 404))
