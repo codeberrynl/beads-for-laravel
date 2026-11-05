@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import ViewHeader from '@/components/ViewHeader.vue'
+import IssueDetail from '@/components/detail/IssueDetail.vue'
 
 defineProps<{ id: string }>()
 </script>
 
 <template>
-  <div class="flex h-full flex-col">
-    <ViewHeader :title="id" />
-  </div>
+  <IssueDetail :id="id" :key="id" mode="page" />
 </template>

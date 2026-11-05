@@ -11,6 +11,7 @@ import { useWorkspace } from '@/composables/useWorkspace'
 import { viewCounts } from '@/lib/issues'
 import { t } from '@/lib/i18n'
 import CommandPalette from '@/components/CommandPalette.vue'
+import SidePeek from '@/components/detail/SidePeek.vue'
 import { usePalette } from '@/composables/usePalette'
 import { useCreateDialog } from '@/composables/useCreateDialog'
 import { useShortcut } from '@/composables/useShortcut'
@@ -64,8 +65,9 @@ async function recheck() {
     <HealthScreen v-else-if="health" :health="health" :checking="bootstrap.isFetching.value" @retry="recheck" />
     <div v-else-if="ready" class="flex h-full">
       <AppSidebar :workspace="workspaceName" :actor="actor" :counts="counts" @search="palette.show" @create="createDialog.open()" />
-      <main class="min-w-0 flex-1 bg-background">
+      <main class="relative min-w-0 flex-1 bg-background">
         <RouterView />
+        <SidePeek />
       </main>
       <CommandPalette />
     </div>
