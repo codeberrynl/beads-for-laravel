@@ -5,8 +5,11 @@ declare(strict_types=1);
 namespace Codeberry\Beads;
 
 use Codeberry\Beads\Cli\BdBinary;
+use Codeberry\Beads\Cli\BdRunner;
 use Codeberry\Beads\Cli\BdVersion;
+use Codeberry\Beads\Cli\WorkspaceLock;
 use Codeberry\Beads\Support\Environment;
+use Codeberry\Beads\Workspace\Workspace;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\Facades\Gate;
@@ -34,6 +37,25 @@ class BeadsServiceProvider extends PackageServiceProvider
         $this->app->singleton(BdVersion::class, fn (Application $app): BdVersion => new BdVersion(
             $app->make(BdBinary::class),
             static::storagePath('bd-version.json'),
+            Environment::home(),
+        ));
+
+        $this->app->singleton(Workspace::class, fn (Application $app): Workspace => new Workspace(
+            (string) $app['config']->get('beads.path', base_path()),
+        ));
+
+        $this->app->singleton(WorkspaceLock::class, fn (Application $app): WorkspaceLock => WorkspaceLock::forWorkspace(
+            $app->make(Workspace::class)->path,
+            static::storagePath(),
+            (float) $app['config']->get('beads.lock_timeout', 10),
+        ));
+
+        $this->app->singleton(BdRunner::class, fn (Application $app): BdRunner => new BdRunner(
+            $app->make(BdBinary::class),
+            $app->make(Workspace::class),
+            $app->make(WorkspaceLock::class),
+            fn (): ?string => $app['config']->get('beads.actor'),
+            (int) $app['config']->get('beads.process_timeout', 30),
             Environment::home(),
         ));
     }

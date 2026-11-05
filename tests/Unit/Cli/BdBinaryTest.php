@@ -4,15 +4,6 @@ declare(strict_types=1);
 
 use Codeberry\Beads\Cli\BdBinary;
 
-function fakeExecutable(string $path): string
-{
-    @mkdir(dirname($path), 0777, true);
-    file_put_contents($path, "#!/bin/sh\necho 'bd version 1.3.2'\n");
-    chmod($path, 0755);
-
-    return $path;
-}
-
 it('uses the configured binary', function () {
     $configured = fakeExecutable($this->sandbox('custom').'/bd');
 
