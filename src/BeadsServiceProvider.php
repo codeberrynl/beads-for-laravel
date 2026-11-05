@@ -8,6 +8,8 @@ use Codeberry\Beads\Cli\BdBinary;
 use Codeberry\Beads\Cli\BdRunner;
 use Codeberry\Beads\Cli\BdVersion;
 use Codeberry\Beads\Cli\WorkspaceLock;
+use Codeberry\Beads\Snapshot\SnapshotRepository;
+use Codeberry\Beads\Snapshot\SnapshotStore;
 use Codeberry\Beads\Support\Environment;
 use Codeberry\Beads\Workspace\Actor;
 use Codeberry\Beads\Workspace\HealthCheck;
@@ -61,6 +63,12 @@ class BeadsServiceProvider extends PackageServiceProvider
         ));
 
         $this->app->singleton(HealthCheck::class);
+
+        $this->app->singleton(SnapshotStore::class, fn (Application $app): SnapshotStore => new SnapshotStore(
+            static::storagePath($app->make(Workspace::class)->key()),
+        ));
+
+        $this->app->singleton(SnapshotRepository::class);
 
         $this->app->singleton(BdRunner::class, fn (Application $app): BdRunner => new BdRunner(
             $app->make(BdBinary::class),
