@@ -62,6 +62,9 @@ function toggleOlderClosed() {
 
 const hiddenClosed = computed(() => snapshot.data.value?.hidden_closed ?? 0)
 
+/** Ready, Blocked and Backlog never contain closed issues. */
+const showsClosed = computed(() => ['all', 'active', 'mine'].includes(view.value))
+
 function createIn(group: IssueGroup) {
   const prefill = display.value.group === 'status' ? { status: group.key }
     : display.value.group === 'priority' ? { priority: Number(group.key) }
@@ -135,7 +138,7 @@ defineExpose({ list, search, activeId })
       @create="createIn"
     >
       <template #footer>
-        <div v-if="hiddenClosed > 0 || showAllClosed" class="flex items-center gap-2 px-4 py-3 text-[12px] text-muted-foreground">
+        <div v-if="showsClosed && (hiddenClosed > 0 || showAllClosed)" class="flex items-center gap-2 px-4 py-3 text-[12px] text-muted-foreground">
           <span v-if="hiddenClosed > 0">{{ t('list.olderClosedHidden', { count: hiddenClosed }) }}</span>
           <button type="button" class="text-primary hover:underline" @click="toggleOlderClosed">
             {{ showAllClosed ? t('list.hideOlderClosed') : t('list.showOlderClosed') }}
