@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Codeberry\Beads;
 
+use Codeberry\Beads\Cli\BdBinary;
+use Codeberry\Beads\Cli\BdVersion;
+use Codeberry\Beads\Support\Environment;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\Facades\Gate;
@@ -19,6 +22,20 @@ class BeadsServiceProvider extends PackageServiceProvider
             ->name('beads')
             ->hasConfigFile()
             ->hasViews('beads');
+    }
+
+    public function packageRegistered(): void
+    {
+        $this->app->singleton(BdBinary::class, fn (Application $app): BdBinary => new BdBinary(
+            $app['config']->get('beads.binary'),
+            Environment::home(),
+        ));
+
+        $this->app->singleton(BdVersion::class, fn (Application $app): BdVersion => new BdVersion(
+            $app->make(BdBinary::class),
+            static::storagePath('bd-version.json'),
+            Environment::home(),
+        ));
     }
 
     public function packageBooted(): void
@@ -66,6 +83,14 @@ class BeadsServiceProvider extends PackageServiceProvider
             'middleware' => [...(array) config('beads.route.middleware', ['web']), Http\Middleware\Authorize::class],
             'as' => 'beads.',
         ], fn () => $this->loadRoutesFrom(static::packagePath('routes/beads.php')));
+    }
+
+    /**
+     * The package's own storage, independent of the host's cache driver.
+     */
+    public static function storagePath(string $path = ''): string
+    {
+        return storage_path('framework/beads'.($path === '' ? '' : '/'.$path));
     }
 
     public static function packagePath(string $path = ''): string
