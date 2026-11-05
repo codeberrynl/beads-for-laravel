@@ -17,6 +17,7 @@ Route::prefix('api')->name('api.')->group(function (): void {
         Route::get('snapshot', SnapshotController::class)->name('snapshot');
         Route::get('issues/{id}', [IssuesController::class, 'show'])->where('id', IssueId::PATTERN)->name('issues.show');
         Route::post('issues', [IssuesController::class, 'store'])->name('issues.store');
+        Route::patch('issues/{id}', [IssuesController::class, 'update'])->where('id', IssueId::PATTERN)->name('issues.update');
     });
 
     Route::any('{any?}', fn () => response()->json(['error' => ['code' => 'not_found', 'message' => 'Unknown API endpoint.']], 404))
