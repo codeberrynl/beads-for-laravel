@@ -103,6 +103,11 @@ class BeadsServiceProvider extends PackageServiceProvider
 
         $this->registerGate();
         $this->registerRoutes();
+
+        $this->commands([
+            Commands\InstallCommand::class,
+            Commands\PublishCommand::class,
+        ]);
     }
 
     /**
