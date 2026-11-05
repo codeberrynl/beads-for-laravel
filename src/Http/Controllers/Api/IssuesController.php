@@ -4,20 +4,24 @@ declare(strict_types=1);
 
 namespace Codeberry\Beads\Http\Controllers\Api;
 
-use Codeberry\Beads\Snapshot\SnapshotPresenter;
+use Codeberry\Beads\Actions\CreateIssue;
+use Codeberry\Beads\Http\Requests\CreateIssueRequest;
 use Codeberry\Beads\Snapshot\SnapshotRepository;
 use Illuminate\Http\JsonResponse;
 
 final class IssuesController
 {
-    public function show(string $id, SnapshotRepository $snapshots, SnapshotPresenter $presenter): JsonResponse
+    use RespondsWithIssue;
+
+    public function show(string $id, SnapshotRepository $snapshots): JsonResponse
     {
-        $payload = $presenter->issue($snapshots->current(), $id);
+        return $this->issueResponse($snapshots->current(), $id);
+    }
 
-        if ($payload === null) {
-            return new JsonResponse(['error' => ['code' => 'not_found', 'message' => "Issue {$id} was not found."]], 404);
-        }
+    public function store(CreateIssueRequest $request, CreateIssue $action): JsonResponse
+    {
+        [$id, $snapshot] = $action->handle($request->validated());
 
-        return new JsonResponse($payload);
+        return $this->issueResponse($snapshot, $id, 201);
     }
 }

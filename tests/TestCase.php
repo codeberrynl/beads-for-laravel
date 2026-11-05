@@ -48,6 +48,7 @@ class TestCase extends Orchestra
         $app->useStoragePath($this->sandbox('storage'));
 
         $app['config']->set('app.key', 'base64:'.base64_encode(str_repeat('a', 32)));
+        $app['config']->set('session.driver', 'array');
         $app['config']->set('beads.path', $this->sandbox('workspace'));
         $app['config']->set('beads.binary', $this->sandbox('bin').'/bd');
         $app['config']->set('beads.actor', 'Tester');
@@ -74,6 +75,15 @@ class TestCase extends Orchestra
         static::$bootingCallback = $booting;
 
         $this->reloadApplication();
+    }
+
+    /**
+     * Send the session's CSRF token, as the SPA does.
+     */
+    public function withCsrf(): static
+    {
+        return $this->withSession(['_token' => 'test-csrf-token'])
+            ->withHeader('X-CSRF-TOKEN', 'test-csrf-token');
     }
 
     /**

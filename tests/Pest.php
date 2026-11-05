@@ -189,3 +189,33 @@ function bdCalls(): array
 
     return $calls;
 }
+
+/**
+ * A fixture export plus extra issue rows.
+ *
+ * @param  list<array<string, mixed>>  $extra
+ */
+function exportWith(array $extra): string
+{
+    return rtrim(fixtureContents('export.jsonl'))."\n".implode("\n", array_map(fn (array $row) => json_encode(['_type' => 'issue'] + $row), $extra))."\n";
+}
+
+/**
+ * The argv (without the binary) of the recorded bd calls for a subcommand.
+ *
+ * @return list<list<string>>
+ */
+function bdArgs(string $subcommand): array
+{
+    $calls = [];
+
+    foreach ((new ReflectionProperty(Factory::class, 'recorded'))->getValue(Process::getFacadeRoot()) as [$process]) {
+        $command = (array) $process->command;
+
+        if (($command[1] ?? '') === $subcommand) {
+            $calls[] = array_values(array_slice($command, 1));
+        }
+    }
+
+    return $calls;
+}
