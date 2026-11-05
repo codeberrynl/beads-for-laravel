@@ -8,8 +8,10 @@ use Codeberry\Beads\Cli\BdBinary;
 use Codeberry\Beads\Cli\BdRunner;
 use Codeberry\Beads\Cli\BdVersion;
 use Codeberry\Beads\Cli\WorkspaceLock;
+use Codeberry\Beads\Snapshot\SnapshotPresenter;
 use Codeberry\Beads\Snapshot\SnapshotRepository;
 use Codeberry\Beads\Snapshot\SnapshotStore;
+use Codeberry\Beads\Support\AssetManifest;
 use Codeberry\Beads\Support\Environment;
 use Codeberry\Beads\Workspace\Actor;
 use Codeberry\Beads\Workspace\HealthCheck;
@@ -69,6 +71,17 @@ class BeadsServiceProvider extends PackageServiceProvider
         ));
 
         $this->app->singleton(SnapshotRepository::class);
+
+        $this->app->singleton(SnapshotPresenter::class, fn (Application $app): SnapshotPresenter => new SnapshotPresenter(
+            $app->make(Actor::class),
+            (int) $app['config']->get('beads.closed_window_days', 30),
+        ));
+
+        $this->app->singleton(AssetManifest::class, fn (): AssetManifest => new AssetManifest(
+            static::packagePath('dist'),
+            public_path('vendor/beads'),
+            static::packagePath('hot'),
+        ));
 
         $this->app->singleton(BdRunner::class, fn (Application $app): BdRunner => new BdRunner(
             $app->make(BdBinary::class),
