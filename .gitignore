@@ -1,9 +1,36 @@
+# Composer
+composer.lock
+/vendor
+
+# Frontend
+/node_modules
+/hot
+
+# Logs
+npm-debug.log
+yarn-error.log
+
+# Caches and build output
+.phpunit.cache
+.phpunit.result.cache
+/build
+/coverage
+
+# IDE
+_ide_helper.php
+_ide_helper_models.php
+.phpstorm.meta.php
+/.idea
+/.fleet
+/.vscode
 .DS_Store
-/vendor/
-/node_modules/
-/build/
-.phpunit.cache/
+
+# Local overrides
+phpunit.xml
+phpstan.neon
 .env
+
+# Workbench demo workspace (created by `composer demo`)
 /workbench/demo/
 
 # Beads / Dolt files (added by bd init)
