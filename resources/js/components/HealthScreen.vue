@@ -4,6 +4,7 @@ import { Check, Copy, RefreshCw, TriangleAlert } from '@lucide/vue'
 import { t } from '@/lib/i18n'
 import type { Health } from '@/lib/types'
 import { Button } from '@/components/ui/button'
+import { copyText } from '@/lib/clipboard'
 
 const props = defineProps<{ health: Health; checking?: boolean }>()
 const emit = defineEmits<{ retry: [] }>()
@@ -36,7 +37,7 @@ const body = computed(() =>
 )
 
 async function copy(index: number, text: string) {
-  await navigator.clipboard?.writeText(text)
+  await copyText(text)
   copied.value = index
   setTimeout(() => (copied.value = null), 1500)
 }

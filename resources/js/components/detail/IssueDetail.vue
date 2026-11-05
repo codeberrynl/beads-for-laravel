@@ -14,6 +14,7 @@ import { config } from '@/lib/config'
 import { fullDate, relativeTime } from '@/lib/time'
 import { t } from '@/lib/i18n'
 import { toast } from 'vue-sonner'
+import { copyText } from '@/lib/clipboard'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 
 const props = defineProps<{ id: string; mode: 'peek' | 'page' }>()
@@ -27,12 +28,12 @@ const related = computed(() => payload.value?.issues ?? {})
 const parent = computed(() => (issue.value?.parent ? related.value[issue.value.parent] : undefined))
 
 async function copyLink() {
-  await navigator.clipboard?.writeText(`${location.origin}${config.basePath}/issue/${encodeURIComponent(props.id)}`)
+  await copyText(`${location.origin}${config.basePath}/issue/${encodeURIComponent(props.id)}`)
   toast.success(t('app.copied'))
 }
 
 async function copyId() {
-  await navigator.clipboard?.writeText(props.id)
+  await copyText(props.id)
   toast.success(t('app.copied'))
 }
 </script>

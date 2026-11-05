@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { TriangleAlert } from '@lucide/vue'
 import { toast } from 'vue-sonner'
+import { copyText } from '@/lib/clipboard'
 import type { Conflict } from '@/composables/useAutosave'
 import { t } from '@/lib/i18n'
 import { Button } from '@/components/ui/button'
@@ -13,7 +14,7 @@ const emit = defineEmits<{ overwrite: []; takeTheirs: [] }>()
 const showTheirs = ref(false)
 
 async function copyMine() {
-  await navigator.clipboard?.writeText(props.conflict.mine)
+  await copyText(props.conflict.mine)
   toast.success(t('conflict.copied'))
 }
 </script>
