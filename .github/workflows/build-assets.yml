@@ -16,12 +16,6 @@ on:
       - 'tsconfig.json'
       - '.github/workflows/build-assets.yml'
   pull_request:
-    paths:
-      - 'resources/js/**'
-      - 'package.json'
-      - 'package-lock.json'
-      - 'vite.config.ts'
-      - 'tsconfig.json'
   workflow_dispatch:
 
 permissions:

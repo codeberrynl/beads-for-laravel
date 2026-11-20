@@ -1,17 +1,21 @@
 name: dependabot-auto-merge
 
-# Patch and minor updates merge themselves once the checks pass.
+# Merges Dependabot's patch and minor updates once every other check on the
+# pull request has passed, then rebuilds dist/ on main (a merge made with
+# GITHUB_TOKEN does not trigger push workflows by itself).
 
 on: pull_request_target
 
 permissions:
   pull-requests: write
   contents: write
+  checks: read
+  actions: write
 
 jobs:
   dependabot:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 45
     if: ${{ github.actor == 'dependabot[bot]' }}
 
     steps:
@@ -21,9 +25,37 @@ jobs:
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
 
-      - name: Auto-merge patch and minor updates
+      - name: Wait for the other checks
         if: ${{ steps.metadata.outputs.update-type == 'version-update:semver-patch' || steps.metadata.outputs.update-type == 'version-update:semver-minor' }}
-        run: gh pr merge --auto --squash "$PR_URL"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          sleep 30
+          for attempt in $(seq 1 80); do
+            runs=$(gh api "repos/$REPO/commits/$SHA/check-runs?per_page=100" \
+              --jq '[.check_runs[] | select(.name != "dependabot")]')
+            total=$(echo "$runs" | jq 'length')
+            pending=$(echo "$runs" | jq '[.[] | select(.status != "completed")] | length')
+            failed=$(echo "$runs" | jq '[.[] | select(.status == "completed" and (.conclusion | IN("success", "skipped", "neutral") | not))] | length')
+            echo "checks: $total, pending: $pending, failed: $failed"
+            if [ "$failed" -gt 0 ]; then echo "A check failed; not merging."; exit 1; fi
+            if [ "$total" -gt 0 ] && [ "$pending" -eq 0 ]; then echo "All checks passed."; exit 0; fi
+            sleep 30
+          done
+          echo "Timed out waiting for checks."; exit 1
+
+      - name: Merge
+        if: ${{ steps.metadata.outputs.update-type == 'version-update:semver-patch' || steps.metadata.outputs.update-type == 'version-update:semver-minor' }}
+        run: gh pr merge --squash "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Rebuild the assets on main
+        if: ${{ steps.metadata.outputs.update-type == 'version-update:semver-patch' || steps.metadata.outputs.update-type == 'version-update:semver-minor' }}
+        run: gh workflow run build-assets.yml --repo "$REPO" --ref main
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}

@@ -12,12 +12,6 @@ on:
       - 'config/**'
       - 'resources/views/**'
   pull_request:
-    paths:
-      - '**.php'
-      - '.github/workflows/run-tests.yml'
-      - 'phpunit.xml.dist'
-      - 'composer.json'
-      - 'tests/Fixtures/**'
 
   workflow_dispatch:
 
