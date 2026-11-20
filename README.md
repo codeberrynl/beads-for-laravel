@@ -17,6 +17,10 @@
   right inside your Laravel app.
 </p>
 
+<p align="center">
+  <img src="art/screenshots/issues-dark.png" alt="The issue list grouped by status, with an issue open in the side-peek" width="100%">
+</p>
+
 ---
 
 [beads](https://beads.gascity.com/) is a git-friendly issue tracker that lives in your repository
@@ -47,6 +51,19 @@ and watch their changes arrive live.
 - **Light and dark** themes, following your system or your choice.
 - **Health screens** that tell you exactly what to run when bd is missing, too old, not initialised
   or needs a migration.
+
+## Screenshots
+
+<table>
+  <tr>
+    <td width="50%"><img src="art/screenshots/board-dark.png" alt="The board with a column per bd status, custom statuses included"></td>
+    <td width="50%"><img src="art/screenshots/detail-light.png" alt="An issue as a full page in the light theme, with the markdown editor and properties"></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Board, with a column per bd status</sub></td>
+    <td align="center"><sub>Issue detail in the light theme</sub></td>
+  </tr>
+</table>
 
 ## Requirements
 

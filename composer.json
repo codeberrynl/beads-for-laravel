@@ -65,6 +65,7 @@
         "prepare": "@php vendor/bin/testbench package:discover --ansi",
         "demo": "@php vendor/bin/testbench beads:demo --ansi",
         "fixtures": "@php vendor/bin/testbench beads:record-fixtures --ansi",
+        "screenshots": "bash workbench/bin/screenshots.sh",
         "build": "@php vendor/bin/testbench workbench:build --ansi",
         "serve": [
             "Composer\\Config::disableProcessTimeout",

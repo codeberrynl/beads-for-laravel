@@ -91,6 +91,17 @@ dist/          The compiled UI (built by CI, see below)
   Horizon does. If `npm run build` changed `dist/` locally, undo it with `git checkout dist`.
 - The pull request template has a short checklist; please go through it.
 
+### Screenshots
+
+The README screenshots come from the demo workspace. After a visible UI change, regenerate them
+with headless Chrome (macOS; set `CHROME` to your Chrome binary elsewhere):
+
+```bash
+composer demo
+composer serve        # in another terminal
+composer screenshots  # writes art/screenshots/*.png
+```
+
 ## Tests
 
 ```bash
