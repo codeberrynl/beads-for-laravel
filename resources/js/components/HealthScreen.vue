@@ -50,7 +50,7 @@ async function copy(index: number, text: string) {
         <TriangleAlert class="size-5" />
       </div>
       <h1 class="text-lg font-semibold">{{ t(`health.title.${health.state}`) }}</h1>
-      <p class="mt-2 text-[13.5px] leading-relaxed text-muted-foreground">{{ body }}</p>
+      <p class="mt-2 text-[14.5px] leading-relaxed text-muted-foreground">{{ body }}</p>
 
       <div v-if="health.state === 'binary_missing' && health.searched.length" class="mt-4 text-xs text-muted-foreground">
         <div class="mb-1 font-medium text-foreground">{{ t('health.searched') }}</div>
@@ -62,7 +62,7 @@ async function copy(index: number, text: string) {
       <div v-if="commands.length" class="mt-5">
         <div class="mb-1.5 text-xs font-medium">{{ t('health.commands') }}</div>
         <div class="overflow-hidden rounded-lg border bg-card">
-          <div v-for="(command, index) in commands" :key="index" class="group flex items-center gap-2 border-b px-3 py-2 font-mono text-[12.5px] last:border-b-0">
+          <div v-for="(command, index) in commands" :key="index" class="group flex items-center gap-2 border-b px-3 py-2 font-mono text-[13.5px] last:border-b-0">
             <span :class="command.startsWith('#') ? 'text-subtle' : 'text-foreground'" class="flex-1 break-all">
               <span v-if="!command.startsWith('#')" class="mr-2 select-none text-subtle">$</span>{{ command }}
             </span>

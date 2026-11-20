@@ -58,7 +58,7 @@ async function recheck() {
 
 <template>
   <TooltipProvider :delay-duration="400">
-    <div v-if="bootstrap.isPending.value" class="grid h-full place-items-center text-[13px] text-muted-foreground">
+    <div v-if="bootstrap.isPending.value" class="grid h-full place-items-center text-[14px] text-muted-foreground">
       {{ t('app.loading') }}
     </div>
     <ErrorScreen

@@ -88,7 +88,7 @@ function takeTheirs() {
       rows="1"
       :placeholder="t('detail.titlePlaceholder')"
       :aria-label="t('detail.titlePlaceholder')"
-      class="block w-full resize-none overflow-hidden bg-transparent text-[20px] font-semibold leading-snug outline-none placeholder:text-subtle"
+      class="block w-full resize-none overflow-hidden bg-transparent text-[21px] font-semibold leading-snug outline-none placeholder:text-subtle"
       @input="resize(); autosave.touch()"
       @focus="focused = true"
       @blur="focused = false; void autosave.flush()"

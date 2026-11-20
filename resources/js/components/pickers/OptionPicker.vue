@@ -95,7 +95,7 @@ function move(delta: number) {
         ref="input"
         v-model="query"
         :placeholder="placeholder ?? t('app.search')"
-        class="h-9 w-full border-b bg-transparent px-3 text-[13px] outline-none placeholder:text-subtle"
+        class="h-9 w-full border-b bg-transparent px-3 text-[14px] outline-none placeholder:text-subtle"
         @keydown.down.prevent="move(1)"
         @keydown.up.prevent="move(-1)"
         @keydown.enter.prevent="choose(index)"
@@ -107,27 +107,27 @@ function move(delta: number) {
           role="option"
           :aria-selected="selected.includes(option.value)"
           :data-active="position === index"
-          class="flex h-8 cursor-default items-center gap-2 rounded-sm px-2 text-[13px] data-[active=true]:bg-accent"
+          class="flex h-8 cursor-default items-center gap-2 rounded-sm px-2 text-[14px] data-[active=true]:bg-accent"
           @mousemove="index = position"
           @click="choose(position)"
         >
           <component :is="option.icon" v-if="option.icon" v-bind="option.iconProps" />
           <span class="truncate">{{ option.label }}</span>
-          <span v-if="option.hint" class="ml-auto shrink-0 pl-2 text-[11.5px] text-subtle">{{ option.hint }}</span>
+          <span v-if="option.hint" class="ml-auto shrink-0 pl-2 text-[12.5px] text-subtle">{{ option.hint }}</span>
           <Check v-if="selected.includes(option.value)" class="size-3.5 shrink-0 text-foreground" :class="{ 'ml-auto': !option.hint, 'ml-1': option.hint }" />
         </div>
         <div
           v-if="canCreate"
           role="option"
           :data-active="index === filtered.length"
-          class="flex h-8 cursor-default items-center gap-2 rounded-sm px-2 text-[13px] data-[active=true]:bg-accent"
+          class="flex h-8 cursor-default items-center gap-2 rounded-sm px-2 text-[14px] data-[active=true]:bg-accent"
           @mousemove="index = filtered.length"
           @click="choose(filtered.length)"
         >
           <Plus class="size-3.5 text-muted-foreground" />
           <span class="truncate">{{ createLabel ? createLabel(query.trim()) : query.trim() }}</span>
         </div>
-        <div v-if="!count" class="px-2 py-3 text-center text-[12px] text-muted-foreground">{{ t('app.noResults') }}</div>
+        <div v-if="!count" class="px-2 py-3 text-center text-[13px] text-muted-foreground">{{ t('app.noResults') }}</div>
       </div>
     </PopoverContent>
   </Popover>

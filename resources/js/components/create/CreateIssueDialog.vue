@@ -123,17 +123,17 @@ function resize(event: Event) {
   element.style.height = `${element.scrollHeight}px`
 }
 
-const chip = 'inline-flex h-7 items-center gap-1.5 rounded-md border px-2 text-[12.5px] hover:bg-accent data-[state=open]:bg-accent'
+const chip = 'inline-flex h-7 items-center gap-1.5 rounded-md border px-2 text-[13.5px] hover:bg-accent data-[state=open]:bg-accent'
 </script>
 
 <template>
   <Dialog :open="dialog.state.open" @update:open="(open) => (open ? undefined : dialog.close())">
     <DialogContent class="top-[12%] max-w-2xl translate-y-0 gap-0 p-0 sm:max-w-2xl" :show-close-button="false" @keydown.meta.enter.prevent="submit" @keydown.ctrl.enter.prevent="submit">
-      <div class="flex items-center gap-2 px-5 pt-4 text-[12.5px] text-muted-foreground">
+      <div class="flex items-center gap-2 px-5 pt-4 text-[13.5px] text-muted-foreground">
         <span v-if="parentRow" class="inline-flex max-w-72 items-center gap-1.5 truncate rounded-md border px-2 py-0.5">
           <TypeIcon :type="parentRow.type" :size="12" /> {{ t('create.in', { parent: parentRow.title }) }}
         </span>
-        <DialogTitle class="text-[12.5px] font-medium text-foreground">{{ t('create.title') }}</DialogTitle>
+        <DialogTitle class="text-[13.5px] font-medium text-foreground">{{ t('create.title') }}</DialogTitle>
         <DialogDescription class="sr-only">{{ t('create.title') }}</DialogDescription>
         <button type="button" class="ml-auto grid size-6 place-items-center rounded hover:bg-accent hover:text-foreground" :aria-label="t('app.close')" @click="dialog.close()">
           <X class="size-4" />
@@ -147,7 +147,7 @@ const chip = 'inline-flex h-7 items-center gap-1.5 rounded-md border px-2 text-[
           rows="1"
           :placeholder="t('create.titlePlaceholder')"
           :aria-label="t('create.titlePlaceholder')"
-          class="block w-full resize-none overflow-hidden bg-transparent text-[18px] font-semibold outline-none placeholder:text-subtle"
+          class="block w-full resize-none overflow-hidden bg-transparent text-[19px] font-semibold outline-none placeholder:text-subtle"
           @input="resize"
           @keydown.enter.exact.prevent
         />
@@ -206,7 +206,7 @@ const chip = 'inline-flex h-7 items-center gap-1.5 rounded-md border px-2 text-[
       </div>
 
       <div class="flex items-center gap-3 border-t px-5 py-3">
-        <label class="flex items-center gap-2 text-[12.5px] text-muted-foreground">
+        <label class="flex items-center gap-2 text-[13.5px] text-muted-foreground">
           <Checkbox :model-value="createMore" @update:model-value="(value) => (createMore = value === true)" />
           {{ t('create.createMore') }}
         </label>

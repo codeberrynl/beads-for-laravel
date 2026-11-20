@@ -181,7 +181,7 @@ const showPlaceholder = computed(() => sourceMode.value && source.value === '')
       @take-theirs="takeTheirs"
     />
 
-    <p v-if="forcedSource" class="mb-2 flex items-start gap-1.5 text-[12px] text-muted-foreground">
+    <p v-if="forcedSource" class="mb-2 flex items-start gap-1.5 text-[13px] text-muted-foreground">
       <TriangleAlert class="mt-0.5 size-3.5 shrink-0 text-status-wip" />
       {{ t('editor.sourceForced') }}
     </p>
@@ -209,7 +209,7 @@ const showPlaceholder = computed(() => sourceMode.value && source.value === '')
         <TooltipTrigger as-child>
           <button
             type="button"
-            class="ml-auto inline-flex h-5 items-center gap-1 rounded px-1 text-[11.5px] text-subtle hover:bg-accent hover:text-foreground disabled:pointer-events-none disabled:opacity-50"
+            class="ml-auto inline-flex h-5 items-center gap-1 rounded px-1 text-[12.5px] text-subtle hover:bg-accent hover:text-foreground disabled:pointer-events-none disabled:opacity-50"
             :disabled="sourceMode && forcedSource"
             :aria-pressed="sourceMode"
             @mousedown.prevent

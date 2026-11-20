@@ -38,7 +38,7 @@ function add(field: Section) {
     <MarkdownField :key="`${issue.id}-description`" :issue-id="issue.id" field="description" :value="issue.description" :placeholder="t('detail.descriptionPlaceholder')" class="mt-3" />
 
     <section v-for="section in visible" :key="section.field" class="mt-6">
-      <button type="button" class="mb-1.5 flex items-center gap-1 text-[12px] font-medium text-muted-foreground hover:text-foreground" @click="toggle(section.field)">
+      <button type="button" class="mb-1.5 flex items-center gap-1 text-[13px] font-medium text-muted-foreground hover:text-foreground" @click="toggle(section.field)">
         <ChevronRight class="size-3.5 transition-transform" :class="{ 'rotate-90': !collapsed.has(section.field) }" />
         {{ t(section.label) }}
       </button>
@@ -58,7 +58,7 @@ function add(field: Section) {
         v-for="section in hidden"
         :key="section.field"
         type="button"
-        class="inline-flex h-6 items-center gap-1 rounded-md border border-dashed px-2 text-[12px] text-muted-foreground hover:border-solid hover:text-foreground"
+        class="inline-flex h-6 items-center gap-1 rounded-md border border-dashed px-2 text-[13px] text-muted-foreground hover:border-solid hover:text-foreground"
         @click="add(section.field)"
       >
         <Plus class="size-3" /> {{ t(section.label) }}

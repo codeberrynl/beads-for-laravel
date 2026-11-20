@@ -49,8 +49,8 @@ function toggleLabel(label: string) {
 }
 
 const rowClass = 'flex h-8 items-center gap-3'
-const labelClass = 'w-20 shrink-0 text-[12px] text-muted-foreground'
-const buttonClass = 'flex h-7 min-w-0 items-center gap-2 rounded-md px-1.5 text-[13px] hover:bg-accent data-[state=open]:bg-accent'
+const labelClass = 'w-20 shrink-0 text-[13px] text-muted-foreground'
+const buttonClass = 'flex h-7 min-w-0 items-center gap-2 rounded-md px-1.5 text-[14px] hover:bg-accent data-[state=open]:bg-accent'
 </script>
 
 <template>

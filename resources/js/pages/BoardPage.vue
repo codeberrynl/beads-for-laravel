@@ -90,10 +90,10 @@ useShortcut('/', () => search.value?.focus())
         @dragleave="over = over === column.status.name ? null : over"
         @drop.prevent="onDrop($event, column.status.name)"
       >
-        <header class="group/col flex h-9 shrink-0 items-center gap-2 px-3 text-[13px]">
+        <header class="group/col flex h-9 shrink-0 items-center gap-2 px-3 text-[14px]">
           <StatusIcon :tone="toneOf(column.status.name, statuses)" />
           <span class="font-medium">{{ statusLabel(column.status.name) }}</span>
-          <span class="text-[12px] tabular-nums text-muted-foreground">{{ column.rows.length }}</span>
+          <span class="text-[13px] tabular-nums text-muted-foreground">{{ column.rows.length }}</span>
           <button
             type="button"
             class="ml-auto grid size-6 place-items-center rounded text-muted-foreground opacity-0 hover:bg-accent hover:text-foreground group-hover/col:opacity-100"
@@ -114,7 +114,7 @@ useShortcut('/', () => search.value?.focus())
             @open="peek.open"
             @dragstart="onDragStart"
           />
-          <p v-if="!column.rows.length" class="px-2 py-6 text-center text-[12px] text-subtle">
+          <p v-if="!column.rows.length" class="px-2 py-6 text-center text-[13px] text-subtle">
             {{ isDone(column.status.name, statuses) ? t('board.dropToClose') : t('board.empty') }}
           </p>
         </div>

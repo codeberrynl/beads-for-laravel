@@ -116,15 +116,15 @@ function choose(item: Item | undefined) {
         aria-controls="beads-palette-list"
         :aria-activedescendant="items[index] ? `palette-${items[index]!.id}` : undefined"
         :placeholder="t('palette.placeholder')"
-        class="h-12 w-full border-b bg-transparent px-4 text-[14px] outline-none placeholder:text-subtle"
+        class="h-12 w-full border-b bg-transparent px-4 text-[15px] outline-none placeholder:text-subtle"
         @keydown.down.prevent="move(1)"
         @keydown.up.prevent="move(-1)"
         @keydown.enter.prevent="choose(items[index])"
       />
       <div id="beads-palette-list" ref="listbox" role="listbox" class="max-h-[min(60vh,420px)] overflow-y-auto p-1.5">
-        <div v-if="!items.length" class="px-3 py-6 text-center text-[13px] text-muted-foreground">{{ t('app.noResults') }}</div>
+        <div v-if="!items.length" class="px-3 py-6 text-center text-[14px] text-muted-foreground">{{ t('app.noResults') }}</div>
         <div v-for="section in groups" :key="section.group" class="mb-1">
-          <div class="px-2.5 pb-1 pt-2 text-[11px] font-medium text-subtle">{{ t(`palette.${section.group}`) }}</div>
+          <div class="px-2.5 pb-1 pt-2 text-[12px] font-medium text-subtle">{{ t(`palette.${section.group}`) }}</div>
           <div
             v-for="item in section.items"
             :id="`palette-${item.id}`"
@@ -132,14 +132,14 @@ function choose(item: Item | undefined) {
             role="option"
             :aria-selected="items[index]?.id === item.id"
             :data-active="items[index]?.id === item.id"
-            class="flex h-9 cursor-default items-center gap-2.5 rounded-md px-2.5 text-[13px] data-[active=true]:bg-accent"
+            class="flex h-9 cursor-default items-center gap-2.5 rounded-md px-2.5 text-[14px] data-[active=true]:bg-accent"
             @mousemove="index = items.indexOf(item)"
             @click="choose(item)"
           >
             <template v-if="item.row">
               <PriorityIcon :priority="item.row.priority" />
               <StatusIcon :tone="toneOf(item.row.status, statuses)" />
-              <span class="shrink-0 text-[12px] tabular-nums text-muted-foreground">{{ item.row.id }}</span>
+              <span class="shrink-0 text-[13px] tabular-nums text-muted-foreground">{{ item.row.id }}</span>
               <span class="truncate">{{ item.label }}</span>
             </template>
             <template v-else>

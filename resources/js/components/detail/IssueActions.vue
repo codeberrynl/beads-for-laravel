@@ -72,10 +72,10 @@ async function copyId() {
 
 <template>
   <div class="flex items-center gap-0.5">
-    <Button v-if="!done && !canForce" variant="ghost" size="sm" class="h-7 gap-1.5 px-2 text-[12.5px] text-muted-foreground" @click="close()">
+    <Button v-if="!done && !canForce" variant="ghost" size="sm" class="h-7 gap-1.5 px-2 text-[13.5px] text-muted-foreground" @click="close()">
       <CircleCheck class="size-3.5" /> {{ t('actions.close') }}
     </Button>
-    <Button v-if="done" variant="ghost" size="sm" class="h-7 gap-1.5 px-2 text-[12.5px] text-muted-foreground" @click="reopen">
+    <Button v-if="done" variant="ghost" size="sm" class="h-7 gap-1.5 px-2 text-[13.5px] text-muted-foreground" @click="reopen">
       <RotateCcw class="size-3.5" /> {{ t('actions.reopen') }}
     </Button>
 
@@ -107,7 +107,7 @@ async function copyId() {
           v-model="reason"
           rows="4"
           :placeholder="t('actions.reasonPlaceholder')"
-          class="w-full resize-y rounded-md border bg-transparent px-3 py-2 text-[13px] outline-none focus:border-ring"
+          class="w-full resize-y rounded-md border bg-transparent px-3 py-2 text-[14px] outline-none focus:border-ring"
           @keydown.meta.enter.prevent="submitReason"
           @keydown.ctrl.enter.prevent="submitReason"
         />

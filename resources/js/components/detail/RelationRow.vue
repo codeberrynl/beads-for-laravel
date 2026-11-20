@@ -11,14 +11,14 @@ const emit = defineEmits<{ open: [id: string]; remove: [] }>()
 </script>
 
 <template>
-  <div class="group/rel flex h-8 items-center gap-2 rounded-md px-2 text-[13px] hover:bg-row-hover" @click="emit('open', id)">
+  <div class="group/rel flex h-8 items-center gap-2 rounded-md px-2 text-[14px] hover:bg-row-hover" @click="emit('open', id)">
     <template v-if="row">
       <PriorityIcon :priority="row.priority" />
       <StatusIcon :tone="toneOf(row.status, statuses)" />
     </template>
-    <span class="shrink-0 text-[12px] tabular-nums text-muted-foreground">{{ id }}</span>
+    <span class="shrink-0 text-[13px] tabular-nums text-muted-foreground">{{ id }}</span>
     <span class="min-w-0 truncate" :class="{ 'text-muted-foreground': !row }">{{ row?.title ?? '' }}</span>
-    <span v-if="note" class="shrink-0 text-[11.5px] text-subtle">{{ note }}</span>
+    <span v-if="note" class="shrink-0 text-[12.5px] text-subtle">{{ note }}</span>
     <button
       v-if="removable"
       type="button"

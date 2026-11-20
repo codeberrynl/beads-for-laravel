@@ -20,13 +20,13 @@ async function copyMine() {
 </script>
 
 <template>
-  <div role="alert" class="rounded-lg border border-status-wip/40 bg-status-wip/10 px-3 py-2.5 text-[12.5px]">
+  <div role="alert" class="rounded-lg border border-status-wip/40 bg-status-wip/10 px-3 py-2.5 text-[13.5px]">
     <div class="flex items-start gap-2">
       <TriangleAlert class="mt-0.5 size-3.5 shrink-0 text-status-wip" />
       <div class="min-w-0 flex-1">
         <p class="font-medium">{{ t('conflict.title') }}</p>
         <p class="text-muted-foreground">{{ t('conflict.body') }}</p>
-        <button type="button" class="mt-1 text-[12px] text-muted-foreground underline decoration-dotted underline-offset-2 hover:text-foreground" @click="showTheirs = !showTheirs">
+        <button type="button" class="mt-1 text-[13px] text-muted-foreground underline decoration-dotted underline-offset-2 hover:text-foreground" @click="showTheirs = !showTheirs">
           {{ t('conflict.takeTheirs') }}…
         </button>
         <pre v-if="showTheirs" class="beads-source mt-1.5 max-h-40 overflow-auto rounded border bg-background/60 p-2 whitespace-pre-wrap">{{ conflict.theirs }}</pre>

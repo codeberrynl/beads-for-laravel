@@ -114,14 +114,14 @@ defineExpose({ list, search, activeId })
 
     <FilterChips :filters="filters" :by-id="snapshot.byId.value" @remove="(key) => setFilters({ [key]: [] })" @clear="clearFilters" />
 
-    <div v-if="meta[view].hint" class="border-b px-4 py-2 text-[12px] text-muted-foreground">{{ t(meta[view].hint!) }}</div>
+    <div v-if="meta[view].hint" class="border-b px-4 py-2 text-[13px] text-muted-foreground">{{ t(meta[view].hint!) }}</div>
 
-    <div v-if="snapshot.isPending.value" class="p-6 text-[13px] text-muted-foreground">{{ t('app.loading') }}</div>
+    <div v-if="snapshot.isPending.value" class="p-6 text-[14px] text-muted-foreground">{{ t('app.loading') }}</div>
 
     <div v-else-if="!filteredRows.length" class="grid flex-1 place-items-center p-6 text-center">
       <div>
-        <p class="text-[13px] text-muted-foreground">{{ hasFilters(filters) ? t('list.emptyFiltered') : t('list.empty') }}</p>
-        <button v-if="hasFilters(filters)" type="button" class="mt-2 text-[13px] text-primary hover:underline" @click="clearFilters">{{ t('list.clearFilters') }}</button>
+        <p class="text-[14px] text-muted-foreground">{{ hasFilters(filters) ? t('list.emptyFiltered') : t('list.empty') }}</p>
+        <button v-if="hasFilters(filters)" type="button" class="mt-2 text-[14px] text-primary hover:underline" @click="clearFilters">{{ t('list.clearFilters') }}</button>
       </div>
     </div>
 
@@ -138,7 +138,7 @@ defineExpose({ list, search, activeId })
       @create="createIn"
     >
       <template #footer>
-        <div v-if="showsClosed && (hiddenClosed > 0 || showAllClosed)" class="flex items-center gap-2 px-4 py-3 text-[12px] text-muted-foreground">
+        <div v-if="showsClosed && (hiddenClosed > 0 || showAllClosed)" class="flex items-center gap-2 px-4 py-3 text-[13px] text-muted-foreground">
           <span v-if="hiddenClosed > 0">{{ t('list.olderClosedHidden', { count: hiddenClosed }) }}</span>
           <button type="button" class="text-primary hover:underline" @click="toggleOlderClosed">
             {{ showAllClosed ? t('list.hideOlderClosed') : t('list.showOlderClosed') }}

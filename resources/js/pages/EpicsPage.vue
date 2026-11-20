@@ -56,11 +56,11 @@ function toggle(id: string) {
       <template #icon><Boxes class="size-4 text-muted-foreground" /></template>
     </ViewHeader>
 
-    <div v-if="!epics.length && !snapshot.isPending.value" class="grid flex-1 place-items-center text-[13px] text-muted-foreground">{{ t('epics.empty') }}</div>
+    <div v-if="!epics.length && !snapshot.isPending.value" class="grid flex-1 place-items-center text-[14px] text-muted-foreground">{{ t('epics.empty') }}</div>
 
     <div v-else class="min-h-0 flex-1 overflow-y-auto">
       <div v-for="epic in epics" :key="epic.id" class="border-b">
-        <div class="group/epic flex h-11 items-center gap-2.5 px-4 text-[13px] hover:bg-row-hover" @click="peek.open(epic.id)">
+        <div class="group/epic flex h-11 items-center gap-2.5 px-4 text-[14px] hover:bg-row-hover" @click="peek.open(epic.id)">
           <button
             type="button"
             class="grid size-5 place-items-center rounded text-muted-foreground hover:bg-accent hover:text-foreground"
@@ -73,14 +73,14 @@ function toggle(id: string) {
           <PriorityBadge :priority="epic.priority" />
           <StatusIcon :tone="toneOf(epic.status, statuses)" />
           <span class="min-w-0 truncate font-medium">{{ epic.title }}</span>
-          <span class="shrink-0 text-[12px] tabular-nums text-muted-foreground">{{ epic.id }}</span>
+          <span class="shrink-0 text-[13px] tabular-nums text-muted-foreground">{{ epic.id }}</span>
 
           <div class="ml-auto flex shrink-0 items-center gap-3">
             <div class="flex w-48 items-center gap-2" :title="epic.progress ? t('detail.progress', { ...epic.progress }) : t('epics.noChildren')">
               <div class="h-1.5 flex-1 overflow-hidden rounded-full bg-muted" role="progressbar" :aria-valuenow="percent(epic)" aria-valuemin="0" aria-valuemax="100">
                 <div class="h-full rounded-full bg-status-done transition-all" :style="{ width: `${percent(epic)}%` }" />
               </div>
-              <span class="w-14 text-right text-[12px] tabular-nums text-muted-foreground">
+              <span class="w-14 text-right text-[13px] tabular-nums text-muted-foreground">
                 {{ epic.progress ? t('epics.progress', { ...epic.progress }) : '–' }}
               </span>
             </div>
@@ -106,8 +106,8 @@ function toggle(id: string) {
             :active="peek.peekId.value === child.id"
             @open="peek.open"
           />
-          <div v-if="!(childrenOf.get(epic.id) ?? []).length" class="px-4 py-2 text-[12px] text-subtle">{{ t('epics.noChildren') }}</div>
-          <button type="button" class="ml-4 mt-1 inline-flex h-7 items-center gap-1.5 text-[12px] text-muted-foreground hover:text-foreground" @click="createDialog.open({ parent: epic.id })">
+          <div v-if="!(childrenOf.get(epic.id) ?? []).length" class="px-4 py-2 text-[13px] text-subtle">{{ t('epics.noChildren') }}</div>
+          <button type="button" class="ml-4 mt-1 inline-flex h-7 items-center gap-1.5 text-[13px] text-muted-foreground hover:text-foreground" @click="createDialog.open({ parent: epic.id })">
             <Plus class="size-3.5" /> {{ t('epics.addSubIssue') }}
           </button>
         </div>

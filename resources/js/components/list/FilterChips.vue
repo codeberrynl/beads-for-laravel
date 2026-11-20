@@ -36,7 +36,7 @@ const chips = computed(() =>
 
 <template>
   <div v-if="chips.length" class="flex flex-wrap items-center gap-1.5 border-b px-4 py-2">
-    <span v-for="chip in chips" :key="chip.key" class="inline-flex h-6 items-center overflow-hidden rounded-md border text-[12px]">
+    <span v-for="chip in chips" :key="chip.key" class="inline-flex h-6 items-center overflow-hidden rounded-md border text-[13px]">
       <span class="px-2 text-foreground">{{ chip.field }}</span>
       <span class="border-l px-2 text-muted-foreground">{{ chip.operator }}</span>
       <span class="max-w-72 truncate border-l px-2 text-foreground">{{ chip.values }}</span>
@@ -44,6 +44,6 @@ const chips = computed(() =>
         <X class="size-3" />
       </button>
     </span>
-    <button type="button" class="ml-1 text-[12px] text-muted-foreground hover:text-foreground" @click="emit('clear')">{{ t('filters.clear') }}</button>
+    <button type="button" class="ml-1 text-[13px] text-muted-foreground hover:text-foreground" @click="emit('clear')">{{ t('filters.clear') }}</button>
   </div>
 </template>

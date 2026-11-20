@@ -37,13 +37,13 @@ async function submit() {
 
 <template>
   <section class="mt-8 border-t pt-6">
-    <h2 class="mb-3 text-[12px] font-medium text-muted-foreground">{{ t('comments.title') }}</h2>
+    <h2 class="mb-3 text-[13px] font-medium text-muted-foreground">{{ t('comments.title') }}</h2>
 
-    <p v-if="!issue.comments.length" class="mb-4 text-[12.5px] text-subtle">{{ t('comments.empty') }}</p>
+    <p v-if="!issue.comments.length" class="mb-4 text-[13.5px] text-subtle">{{ t('comments.empty') }}</p>
 
     <ol class="space-y-3">
       <li v-for="comment in issue.comments" :key="comment.id" class="rounded-lg border bg-card px-3.5 py-2.5" :class="{ 'opacity-60': comment.id.startsWith('pending-') }">
-        <div class="mb-1 flex items-center gap-2 text-[12px]">
+        <div class="mb-1 flex items-center gap-2 text-[13px]">
           <UserAvatar :name="comment.author || null" :agent="!isHuman(comment.author)" :size="18" />
           <span class="font-medium">{{ comment.author || t('app.unknown') }}</span>
           <AgentBadge v-if="!isHuman(comment.author)" :name="comment.author" />
@@ -59,12 +59,12 @@ async function submit() {
         rows="3"
         :placeholder="t('comments.placeholder')"
         :aria-label="t('comments.placeholder')"
-        class="block w-full resize-y bg-transparent px-3.5 py-2.5 text-[13px] outline-none placeholder:text-subtle"
+        class="block w-full resize-y bg-transparent px-3.5 py-2.5 text-[14px] outline-none placeholder:text-subtle"
         @keydown.meta.enter.prevent="submit"
         @keydown.ctrl.enter.prevent="submit"
       />
       <div class="flex items-center justify-end gap-2 px-2.5 pb-2">
-        <span class="text-[11.5px] text-subtle">{{ t('comments.submitHint') }}</span>
+        <span class="text-[12.5px] text-subtle">{{ t('comments.submitHint') }}</span>
         <Button type="submit" size="xs" :disabled="text.trim() === '' || sending">{{ t('comments.submit') }}</Button>
       </div>
     </form>

@@ -20,7 +20,7 @@ const emit = defineEmits<{ change: [patch: Partial<DisplayOptions>] }>()
 <template>
   <DropdownMenu>
     <DropdownMenuTrigger as-child>
-      <Button variant="ghost" size="sm" class="h-7 gap-1.5 px-2 text-[13px] text-muted-foreground">
+      <Button variant="ghost" size="sm" class="h-7 gap-1.5 px-2 text-[14px] text-muted-foreground">
         <SlidersHorizontal class="size-3.5" />
         {{ t('filters.display') }}
       </Button>

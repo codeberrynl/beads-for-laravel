@@ -10,7 +10,7 @@ withDefaults(defineProps<{ name: string; compact?: boolean }>(), { compact: fals
   <Tooltip>
     <TooltipTrigger as-child>
       <span
-        class="inline-flex h-5 shrink-0 items-center gap-1 rounded-full px-1.5 text-[11px] font-medium"
+        class="inline-flex h-5 shrink-0 items-center gap-1 rounded-full px-1.5 text-[12px] font-medium"
         :style="{ color: 'var(--agent)', background: 'color-mix(in oklch, var(--agent) 14%, transparent)' }"
       >
         <Bot class="size-3" />

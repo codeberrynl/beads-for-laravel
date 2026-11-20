@@ -43,7 +43,7 @@ async function copyId() {
 
 <template>
   <div class="flex h-full min-h-0 flex-col">
-    <header class="flex h-11 shrink-0 items-center gap-2 border-b px-4 text-[13px]">
+    <header class="flex h-11 shrink-0 items-center gap-2 border-b px-4 text-[14px]">
       <RouterLink v-if="mode === 'page'" to="/issues" class="text-muted-foreground hover:text-foreground">{{ t('nav.issues') }}</RouterLink>
       <ChevronRight v-if="mode === 'page'" class="size-3.5 text-subtle" />
       <template v-if="parent">
@@ -86,13 +86,13 @@ async function copyId() {
       </div>
     </header>
 
-    <div v-if="detail.isPending.value" class="p-6 text-[13px] text-muted-foreground">{{ t('app.loading') }}</div>
+    <div v-if="detail.isPending.value" class="p-6 text-[14px] text-muted-foreground">{{ t('app.loading') }}</div>
 
     <div v-else-if="!issue" class="grid flex-1 place-items-center p-6 text-center">
       <div>
-        <p class="text-[14px] font-medium">{{ t('detail.notFound') }}</p>
-        <p class="mt-1 text-[13px] text-muted-foreground">{{ t('detail.notFoundHint') }}</p>
-        <RouterLink to="/issues" class="mt-3 inline-block text-[13px] text-primary hover:underline">{{ t('detail.back') }}</RouterLink>
+        <p class="text-[15px] font-medium">{{ t('detail.notFound') }}</p>
+        <p class="mt-1 text-[14px] text-muted-foreground">{{ t('detail.notFoundHint') }}</p>
+        <RouterLink to="/issues" class="mt-3 inline-block text-[14px] text-primary hover:underline">{{ t('detail.back') }}</RouterLink>
       </div>
     </div>
 
@@ -114,7 +114,7 @@ async function copyId() {
         <RelationsSection v-if="payload" :issue="issue" :relations="payload.relations" :issues="payload.issues" />
         <CommentsThread :issue="issue" />
 
-        <p class="mt-8 text-[12px] text-subtle">
+        <p class="mt-8 text-[13px] text-subtle">
           <span :title="fullDate(issue.created_at)">{{ t('detail.created', { date: relativeTime(issue.created_at), name: issue.created_by ?? t('app.unknown') }) }}</span>
           · <span :title="fullDate(issue.updated_at)">{{ t('detail.updated', { date: relativeTime(issue.updated_at) }) }}</span>
           <template v-if="issue.closed_at"> · <span :title="fullDate(issue.closed_at)">{{ t('detail.closed', { date: relativeTime(issue.closed_at) }) }}</span></template>
@@ -122,7 +122,7 @@ async function copyId() {
       </div>
 
       <aside v-if="mode === 'page'" class="w-72 shrink-0 border-l px-4 py-6">
-        <div class="mb-2 text-[11px] font-medium text-subtle">{{ t('detail.properties') }}</div>
+        <div class="mb-2 text-[12px] font-medium text-subtle">{{ t('detail.properties') }}</div>
         <IssueProperties :issue="issue" :related="related" />
       </aside>
     </div>

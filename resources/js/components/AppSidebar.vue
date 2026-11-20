@@ -65,10 +65,10 @@ function countFor(key?: string): number | undefined {
   <aside class="flex h-full w-[232px] shrink-0 flex-col border-r bg-sidebar text-sidebar-foreground">
     <div class="flex h-12 items-center gap-2 px-3">
       <div class="flex min-w-0 flex-1 items-center gap-2 rounded-md px-1.5 py-1">
-        <span class="grid size-5 shrink-0 place-items-center rounded-[5px] bg-primary text-[11px] font-semibold text-primary-foreground">
+        <span class="grid size-5 shrink-0 place-items-center rounded-[5px] bg-primary text-[12px] font-semibold text-primary-foreground">
           {{ initial }}
         </span>
-        <span class="truncate text-[13px] font-medium text-foreground">{{ workspace }}</span>
+        <span class="truncate text-[14px] font-medium text-foreground">{{ workspace }}</span>
       </div>
       <Tooltip>
         <TooltipTrigger as-child>
@@ -100,32 +100,32 @@ function countFor(key?: string): number | undefined {
 
     <nav class="flex-1 space-y-4 overflow-y-auto px-2 py-2">
       <div>
-        <div class="px-2 pb-1 text-[11px] font-medium text-subtle">{{ t('nav.issues') }}</div>
+        <div class="px-2 pb-1 text-[12px] font-medium text-subtle">{{ t('nav.issues') }}</div>
         <RouterLink
           v-for="link in issueLinks"
           :key="link.to"
           :to="link.to"
-          class="group flex h-7 items-center gap-2 rounded-md px-2 text-[13px] hover:bg-sidebar-accent hover:text-foreground"
+          class="group flex h-7 items-center gap-2 rounded-md px-2 text-[14px] hover:bg-sidebar-accent hover:text-foreground"
           exact-active-class="bg-sidebar-accent text-foreground font-medium"
         >
           <component :is="link.icon" class="size-4 shrink-0 text-muted-foreground group-hover:text-foreground" />
           <span class="flex-1 truncate">{{ t(link.label) }}</span>
-          <span v-if="countFor(link.count) !== undefined" class="text-[11px] tabular-nums text-subtle">{{ countFor(link.count) }}</span>
+          <span v-if="countFor(link.count) !== undefined" class="text-[12px] tabular-nums text-subtle">{{ countFor(link.count) }}</span>
         </RouterLink>
       </div>
 
       <div>
-        <div class="px-2 pb-1 text-[11px] font-medium text-subtle">{{ t('nav.views') }}</div>
+        <div class="px-2 pb-1 text-[12px] font-medium text-subtle">{{ t('nav.views') }}</div>
         <RouterLink
           v-for="link in viewLinks"
           :key="link.to"
           :to="link.to"
-          class="group flex h-7 items-center gap-2 rounded-md px-2 text-[13px] hover:bg-sidebar-accent hover:text-foreground"
+          class="group flex h-7 items-center gap-2 rounded-md px-2 text-[14px] hover:bg-sidebar-accent hover:text-foreground"
           active-class="bg-sidebar-accent text-foreground font-medium"
         >
           <component :is="link.icon" class="size-4 shrink-0 text-muted-foreground group-hover:text-foreground" />
           <span class="flex-1 truncate">{{ t(link.label) }}</span>
-          <span v-if="countFor(link.count) !== undefined" class="text-[11px] tabular-nums text-subtle">{{ countFor(link.count) }}</span>
+          <span v-if="countFor(link.count) !== undefined" class="text-[12px] tabular-nums text-subtle">{{ countFor(link.count) }}</span>
         </RouterLink>
       </div>
     </nav>
@@ -133,8 +133,8 @@ function countFor(key?: string): number | undefined {
     <div class="border-t p-2">
       <DropdownMenu>
         <DropdownMenuTrigger as-child>
-          <button type="button" class="flex h-8 w-full items-center gap-2 rounded-md px-2 text-left text-[13px] hover:bg-sidebar-accent">
-            <span class="grid size-5 shrink-0 place-items-center rounded-full bg-muted text-[10px] font-semibold text-foreground">{{ actorInitials }}</span>
+          <button type="button" class="flex h-8 w-full items-center gap-2 rounded-md px-2 text-left text-[14px] hover:bg-sidebar-accent">
+            <span class="grid size-5 shrink-0 place-items-center rounded-full bg-muted text-[11px] font-semibold text-foreground">{{ actorInitials }}</span>
             <span class="min-w-0 flex-1 truncate text-foreground">{{ actor }}</span>
             <ChevronDown class="size-3.5 text-muted-foreground" />
           </button>
@@ -142,7 +142,7 @@ function countFor(key?: string): number | undefined {
         <DropdownMenuContent side="top" align="start" class="w-56">
           <DropdownMenuLabel class="text-xs font-normal text-muted-foreground">
             {{ t('user.signedInAs', { name: actor }) }}
-            <span class="mt-0.5 block text-[11px] text-subtle">{{ t('user.actorHint') }}</span>
+            <span class="mt-0.5 block text-[12px] text-subtle">{{ t('user.actorHint') }}</span>
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuLabel class="text-xs text-muted-foreground">{{ t('theme.label') }}</DropdownMenuLabel>

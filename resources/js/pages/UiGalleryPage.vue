@@ -19,7 +19,7 @@ const types = ['task', 'bug', 'feature', 'chore', 'epic', 'decision', 'spike', '
 <template>
   <div class="flex h-full flex-col">
     <ViewHeader title="UI gallery" />
-    <div class="grid gap-6 overflow-auto p-6 text-[13px]">
+    <div class="grid gap-6 overflow-auto p-6 text-[14px]">
       <section class="flex flex-wrap gap-4">
         <span v-for="tone in tones" :key="tone" class="flex items-center gap-1.5"><StatusIcon :tone="tone" /> {{ tone }}</span>
       </section>

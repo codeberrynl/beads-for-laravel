@@ -79,11 +79,11 @@ function removeOther(dependency: Dependency) {
 
 <template>
   <section class="mt-8">
-    <h2 class="mb-2 text-[12px] font-medium text-muted-foreground">{{ t('relations.title') }}</h2>
+    <h2 class="mb-2 text-[13px] font-medium text-muted-foreground">{{ t('relations.title') }}</h2>
 
     <div class="space-y-3">
       <div v-for="group in groups" :key="group.kind">
-        <div class="flex h-6 items-center gap-1 text-[12px] text-subtle">
+        <div class="flex h-6 items-center gap-1 text-[13px] text-subtle">
           <span>{{ group.label }}</span>
           <span v-if="group.ids.length" class="tabular-nums">{{ group.ids.length }}</span>
           <OptionPicker :options="candidates(group.ids)" :selected="[]" :placeholder="group.add" width="22rem" align="start" @select="(target) => add(group.kind, target)">
@@ -94,7 +94,7 @@ function removeOther(dependency: Dependency) {
           <button
             v-if="group.kind === 'children'"
             type="button"
-            class="ml-1 text-[11.5px] text-muted-foreground hover:text-foreground"
+            class="ml-1 text-[12.5px] text-muted-foreground hover:text-foreground"
             @click="createDialog.open({ parent: issue.id })"
           >
             {{ t('relations.newSubIssue') }}
@@ -112,7 +112,7 @@ function removeOther(dependency: Dependency) {
       </div>
 
       <div v-if="relations.other.length">
-        <div class="flex h-6 items-center text-[12px] text-subtle">{{ t('relations.other') }}</div>
+        <div class="flex h-6 items-center text-[13px] text-subtle">{{ t('relations.other') }}</div>
         <RelationRow
           v-for="dependency in relations.other"
           :id="otherNote(dependency).id"

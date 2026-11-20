@@ -65,7 +65,7 @@ watch(
     <template v-for="group in groups" :key="group.key">
       <div
         v-if="group.label !== ''"
-        class="group/head sticky top-0 z-10 flex h-9 items-center gap-2 border-b bg-muted/70 px-4 text-[13px] backdrop-blur"
+        class="group/head sticky top-0 z-10 flex h-9 items-center gap-2 border-b bg-muted/70 px-4 text-[14px] backdrop-blur"
       >
         <button type="button" class="flex min-w-0 items-center gap-2" @click="toggle(group.key)">
           <ChevronRight class="size-3.5 text-muted-foreground transition-transform" :class="{ 'rotate-90': !collapsed.has(group.key) }" />
@@ -74,7 +74,7 @@ watch(
           <TypeIcon v-else-if="group.type" :type="group.type" />
           <UserAvatar v-else-if="group.assignee !== undefined" :name="group.assignee" :agent="group.assignee !== null && !isHuman(group.assignee)" :size="16" />
           <span class="truncate font-medium">{{ group.label }}</span>
-          <span class="text-[12px] tabular-nums text-muted-foreground">{{ group.rows.length }}</span>
+          <span class="text-[13px] tabular-nums text-muted-foreground">{{ group.rows.length }}</span>
         </button>
         <button
           type="button"
