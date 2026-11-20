@@ -59,8 +59,8 @@ class RecordFixturesCommand extends Command
             return [
                 'command' => array_slice($argv, 1),
                 'exit_code' => $result->exitCode(),
-                'stdout' => $result->output(),
-                'stderr' => $result->errorOutput(),
+                'stdout' => $this->scrub($result->output()),
+                'stderr' => $this->scrub($result->errorOutput()),
             ];
         };
 
@@ -100,6 +100,15 @@ class RecordFixturesCommand extends Command
         $this->components->info("Fixtures recorded in {$directory}");
 
         return self::SUCCESS;
+    }
+
+    /**
+     * Fixtures are public: replace personal e-mail addresses (bd records
+     * the git e-mail as the owner) with the project address.
+     */
+    private function scrub(string $output): string
+    {
+        return (string) preg_replace('/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/', 'hello@codeberry.nl', $output);
     }
 
     /**
