@@ -73,3 +73,16 @@ it('loads the Vite dev server when the hot file exists', function () {
         ->assertSee('<script type="module" src="http://localhost:5183/@vite/client"></script>', false)
         ->assertSee('<script type="module" src="http://localhost:5183/resources/js/app.ts"></script>', false);
 });
+
+it('uses the app icon as an inline SVG favicon', function () {
+    $this->get('/beads')
+        ->assertSee('<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,', false);
+
+    preg_match('/rel="icon" type="image\/svg\+xml" href="data:image\/svg\+xml;base64,([^"]+)"/', $this->get('/beads')->getContent(), $matches);
+    $svg = base64_decode($matches[1], true);
+
+    // The favicon must be valid SVG with the full mark (a raw "#" in a data URI would cut it off).
+    expect($svg)->toBeString()
+        ->and(simplexml_load_string($svg))->not->toBeFalse()
+        ->and($svg)->toContain('Beads for Laravel', '#6D6AF5', '#A78BFA');
+});

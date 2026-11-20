@@ -1,14 +1,19 @@
 name: build-assets
 
+# Like Horizon, the compiled UI ships in dist/. Contributors never commit a
+# build: CI builds dist/ on main and commits it back, and checks the build on
+# pull requests.
+
 on:
   push:
+    branches: [main]
     paths:
       - 'resources/js/**'
+      - 'resources/views/**'
       - 'package.json'
       - 'package-lock.json'
       - 'vite.config.ts'
       - 'tsconfig.json'
-      - 'dist/**'
       - '.github/workflows/build-assets.yml'
   pull_request:
     paths:
@@ -17,15 +22,25 @@ on:
       - 'package-lock.json'
       - 'vite.config.ts'
       - 'tsconfig.json'
-      - 'dist/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
+        with:
+          ref: ${{ github.head_ref }}
 
       - name: Setup Node
         uses: actions/setup-node@v5
@@ -39,5 +54,9 @@ jobs:
       - name: Type-check and build
         run: npm run build
 
-      - name: The committed dist/ is up to date
-        run: git diff --exit-code --stat dist
+      - name: Commit the compiled assets
+        if: github.event_name != 'pull_request'
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: Build assets
+          file_pattern: dist

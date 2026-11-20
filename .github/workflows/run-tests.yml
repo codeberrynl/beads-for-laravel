@@ -8,6 +8,9 @@ on:
       - 'phpunit.xml.dist'
       - 'composer.json'
       - 'tests/Fixtures/**'
+      - 'routes/**'
+      - 'config/**'
+      - 'resources/views/**'
   pull_request:
     paths:
       - '**.php'
@@ -15,6 +18,8 @@ on:
       - 'phpunit.xml.dist'
       - 'composer.json'
       - 'tests/Fixtures/**'
+
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

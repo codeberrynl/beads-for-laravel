@@ -1,0 +1,1 @@
+import{Sn as e,in as t,un as n}from"./types-meta-D5Aenl1t.js";import{t as r}from"./IssueDetail-huja_JT0.js";var i=n({__name:`IssuePage`,props:{id:{}},setup(n){return(i,a)=>(e(),t(r,{id:n.id,key:n.id,mode:`page`},null,8,[`id`]))}});export{i as default};

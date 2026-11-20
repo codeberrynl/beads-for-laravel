@@ -22,7 +22,6 @@ const routes: RouteRecordRaw[] = [
   { path: '/board', name: 'board', component: () => import('@/pages/BoardPage.vue') },
   { path: '/epics', name: 'epics', component: () => import('@/pages/EpicsPage.vue') },
   { path: '/issue/:id', name: 'issue', component: () => import('@/pages/IssuePage.vue'), props: true },
-  { path: '/_ui', name: 'ui', component: () => import('@/pages/UiGalleryPage.vue') },
   { path: '/:pathMatch(.*)*', redirect: '/issues' },
 ]
 

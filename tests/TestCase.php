@@ -61,6 +61,8 @@ class TestCase extends Orchestra
     {
         $app['env'] = static::$environment;
         $app->useStoragePath($this->sandbox('storage'));
+        // Never publish into (or clean up) the workbench's real public directory.
+        $app->usePublicPath($this->sandbox('public'));
 
         $app['config']->set('app.key', 'base64:'.base64_encode(str_repeat('a', 32)));
         $app['config']->set('session.driver', 'array');

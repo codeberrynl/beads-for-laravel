@@ -6,7 +6,9 @@
         "laravel",
         "beads",
         "bd",
-        "issues"
+        "issue-tracker",
+        "linear",
+        "ai-agents"
     ],
     "homepage": "https://github.com/codeberry/beads-for-laravel",
     "license": "MIT",
@@ -17,14 +19,20 @@
             "role": "Developer"
         }
     ],
+    "support": {
+        "issues": "https://github.com/codeberry/beads-for-laravel/issues",
+        "source": "https://github.com/codeberry/beads-for-laravel"
+    },
     "require": {
         "php": "^8.4",
+        "illuminate/auth": "^12.0||^13.0",
         "illuminate/console": "^12.0||^13.0",
         "illuminate/contracts": "^12.0||^13.0",
         "illuminate/http": "^12.0||^13.0",
         "illuminate/process": "^12.0||^13.0",
         "illuminate/routing": "^12.0||^13.0",
         "illuminate/support": "^12.0||^13.0",
+        "illuminate/validation": "^12.0||^13.0",
         "illuminate/view": "^12.0||^13.0",
         "spatie/laravel-package-tools": "^1.92"
     },

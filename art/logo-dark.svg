@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="160" viewBox="0 0 640 160" role="img" aria-label="Beads for Laravel">
+<g transform="translate(24 24) scale(1.75)">
+  <rect width="64" height="64" rx="15" fill="#1C1C24"/>
+  <rect x="0.5" y="0.5" width="63" height="63" rx="14.5" fill="none" stroke="#2C2C38"/>
+  <line x1="7" y1="52" x2="57" y2="12" stroke="#4B4B5C" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="18" cy="43.2" r="8.6" fill="#1C1C24"/>
+  <circle cx="18" cy="43.2" r="7" fill="#6D6AF5"/>
+  <path d="M14.6 43.4 L17 45.8 L21.6 40.8" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="32" cy="32" r="8.6" fill="#1C1C24"/>
+  <circle cx="32" cy="32" r="6.1" fill="none" stroke="#A78BFA" stroke-width="1.9"/>
+  <path d="M32 27.6 A4.4 4.4 0 0 1 32 36.4 Z" fill="#A78BFA"/>
+  <circle cx="46" cy="20.8" r="8.6" fill="#1C1C24"/>
+  <circle cx="46" cy="20.8" r="6.1" fill="none" stroke="#C9C7DD" stroke-width="1.9"/>
+</g>
+  <text x="164" y="88" font-family="'Space Grotesk', Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="60" font-weight="700" letter-spacing="-2" fill="#F4F4F8">beads</text>
+  <text x="166" y="124" font-family="'Space Grotesk', Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="500" fill="#9A98B4">for Laravel</text>
+</svg>
