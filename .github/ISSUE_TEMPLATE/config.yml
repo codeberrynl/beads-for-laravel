@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: Ideas and questions
-    url: https://github.com/codeberry/beads-for-laravel/discussions
+    url: https://github.com/codeberrynl/beads-for-laravel/discussions
     about: Ask a question or propose an idea before opening a pull request.
   - name: Security vulnerabilities
-    url: https://github.com/codeberry/beads-for-laravel/security/policy
+    url: https://github.com/codeberrynl/beads-for-laravel/security/policy
     about: Please report security issues privately, not in a public issue.

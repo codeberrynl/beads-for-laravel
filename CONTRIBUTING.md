@@ -4,9 +4,9 @@ Thanks for helping out! This guide gets you from a fresh clone to a merged pull 
 
 ## Before you start
 
-- **Bugs:** open an [issue](https://github.com/codeberry/beads-for-laravel/issues/new/choose) with
+- **Bugs:** open an [issue](https://github.com/codeberrynl/beads-for-laravel/issues/new/choose) with
   the steps to reproduce it and your bd version (`bd --version`).
-- **Features and bigger changes:** start a [discussion](https://github.com/codeberry/beads-for-laravel/discussions)
+- **Features and bigger changes:** start a [discussion](https://github.com/codeberrynl/beads-for-laravel/discussions)
   first, so we can agree on the approach before you spend time on it. Check
   [Not (yet) included](README.md#not-yet-included): some features were left out on purpose.
 - **Security issues:** never in public; see [SECURITY.md](SECURITY.md).
@@ -16,7 +16,7 @@ Thanks for helping out! This guide gets you from a fresh clone to a merged pull 
 You need PHP 8.4+, Composer, Node 22.12+ (or 24) and [bd](https://beads.gascity.com/) 1.3.0+.
 
 ```bash
-git clone https://github.com/codeberry/beads-for-laravel.git
+git clone https://github.com/codeberrynl/beads-for-laravel.git
 cd beads-for-laravel
 composer install
 npm install

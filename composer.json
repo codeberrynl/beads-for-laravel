@@ -10,7 +10,7 @@
         "linear",
         "ai-agents"
     ],
-    "homepage": "https://github.com/codeberry/beads-for-laravel",
+    "homepage": "https://github.com/codeberrynl/beads-for-laravel",
     "license": "MIT",
     "authors": [
         {
@@ -20,8 +20,8 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/codeberry/beads-for-laravel/issues",
-        "source": "https://github.com/codeberry/beads-for-laravel"
+        "issues": "https://github.com/codeberrynl/beads-for-laravel/issues",
+        "source": "https://github.com/codeberrynl/beads-for-laravel"
     },
     "require": {
         "php": "^8.4",

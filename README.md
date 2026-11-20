@@ -7,7 +7,7 @@
 
 <p align="center">
   <a href="https://packagist.org/packages/codeberry/beads-for-laravel"><img src="https://img.shields.io/packagist/v/codeberry/beads-for-laravel.svg?style=flat-square" alt="Latest version on Packagist"></a>
-  <a href="https://github.com/codeberry/beads-for-laravel/actions/workflows/run-tests.yml"><img src="https://img.shields.io/github/actions/workflow/status/codeberry/beads-for-laravel/run-tests.yml?branch=main&label=tests&style=flat-square" alt="Tests"></a>
+  <a href="https://github.com/codeberrynl/beads-for-laravel/actions/workflows/run-tests.yml"><img src="https://img.shields.io/github/actions/workflow/status/codeberrynl/beads-for-laravel/run-tests.yml?branch=main&label=tests&style=flat-square" alt="Tests"></a>
   <a href="https://packagist.org/packages/codeberry/beads-for-laravel"><img src="https://img.shields.io/packagist/dt/codeberry/beads-for-laravel.svg?style=flat-square" alt="Total downloads"></a>
   <a href="LICENSE.md"><img src="https://img.shields.io/packagist/l/codeberry/beads-for-laravel.svg?style=flat-square" alt="License"></a>
 </p>
@@ -198,7 +198,7 @@ The snapshot is cached in `storage/framework/beads`, independent of your cache d
 
 Deleting issues, bulk actions, a dependency graph, manual ordering, more than one workspace per
 app, and `bd init`, `sync`, `push` or `pull` from the UI. The UI is in English and ready for
-translation. Ideas are welcome in the [discussions](https://github.com/codeberry/beads-for-laravel/discussions).
+translation. Ideas are welcome in the [discussions](https://github.com/codeberrynl/beads-for-laravel/discussions).
 
 ## Contributing
 
@@ -212,7 +212,7 @@ Found a security issue? Please report it privately; see [SECURITY.md](SECURITY.m
 ## Credits
 
 - Jurrid at [Codeberry](https://codeberry.nl)
-- [All contributors](https://github.com/codeberry/beads-for-laravel/contributors)
+- [All contributors](https://github.com/codeberrynl/beads-for-laravel/contributors)
 - Built on [beads](https://beads.gascity.com/), [Vue](https://vuejs.org), [Tiptap](https://tiptap.dev),
   [reka-ui](https://reka-ui.com) and [shadcn-vue](https://www.shadcn-vue.com).
 
